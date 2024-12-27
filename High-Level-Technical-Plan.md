@@ -1,277 +1,211 @@
-# High-Level Technical Plan for 10th Wedding Anniversary Website
+# Anniversary Website Plan (Version 3)
 
-Below is a structured plan to build a romantic and modern anniversary website using **Next.js** and **shadcn**. The project is broken down into features, site structure, and a proposed 3-week timeline. Code examples with syntax highlighting are included to illustrate some of the core implementation details.
-
----
-
-## 1. Detailed Description of Each Feature & Section
-
-1. **Landing Page**  
-   - **Hero Section**: Displays a large, romantic header image and a welcoming headline (e.g., *“A Decade of Love”*).  
-   - **Call-to-Action (CTA)**: A button leading to the main content, such as “Explore Our Story.”
-
-2. **Our Story Timeline**  
-   - Interactive timeline showcasing important milestones (wedding day, honeymoon, kids, special trips).  
-   - Each milestone includes a short description, date, and optional small image or icon.  
-   - Potential for animated transitions to make it feel modern and engaging.
-
-3. **Photo Gallery**  
-   - A grid or mosaic layout that elegantly displays a curated set of memorable photos.  
-   - Clicking on a photo opens a modal with a larger view and optional caption.
-
-4. **Love Letter / Message Section**  
-   - A dedicated section to display a personal letter, poem, or heartfelt message to your wife.  
-   - Possibly includes audio or voice notes for an extra romantic touch (optional).
-
-5. **Guestbook or Tribute Section (Optional)**  
-   - A section where friends or family can write short messages or tributes.  
-   - If you choose to include this, you’ll need simple form handling. Could be stored in a database or a static JSON file if you want to keep it minimal.
-
-6. **Surprise / Easter Egg**  
-   - A hidden page or pop-up that reveals a special video or collage.  
-   - Could be triggered by a secret link or a specific user action (e.g., clicking a special icon).
-
-7. **Footer**  
-   - Subtle branding with your names, the wedding date, and a small note like *“10 Years & Counting”*.  
-   - Links to any social media (if relevant).
+This version consolidates all previous concepts—**single-page main layout**, **additional routes**, **parallax** animations, and the new **“Time Since We Met”** feature. Below is a comprehensive plan detailing each section, page, layout concept, and potential animations to make your 10th-anniversary website a memorable, immersive experience.
 
 ---
 
-## 2. Breakdown of the Overall Structure
+## 1. Project Overview
 
-Below is a possible file structure following the **Next.js 13 App Router** convention with **shadcn/ui**. If you are still using the `pages` directory approach, you can adapt the structure accordingly.
+1. **Framework & Stack**  
+   - **Next.js (v15)**  
+   - **TypeScript**  
+   - **shadcn UI** for pre-styled React components  
+   - **Tailwind CSS** for utility-first styling  
 
-```bash
-my-anniversary-website/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx               # Landing page
-│   ├── story/
-│   │   └── page.tsx           # "Our Story" timeline
-│   ├── gallery/
-│   │   └── page.tsx           # Photo gallery
-│   ├── letter/
-│   │   └── page.tsx           # Love letter or message section
-│   ├── guestbook/ (Optional)
-│   │   ├── page.tsx           # Guestbook page
-│   │   └── api/submit.ts      # API route for form submission
-│   ├── surprise/
-│   │   └── page.tsx           # Hidden or Easter Egg page
-│   └── globals.css            # Global styles
-├── components/                # Reusable components
-│   ├── Hero.tsx
-│   ├── Timeline.tsx
-│   ├── GalleryGrid.tsx
-│   ├── Modal.tsx
-│   └── ...
-├── lib/                       # Utility functions or helpers
-├── public/                    # Static images and assets
-├── shadcn-ui.config.js        # shadcn/ui configuration
-├── package.json
-└── tsconfig.json
-```
+2. **Structure**  
+   - **Single-Page Main Layout**: Hero, Time Since We Met, Timeline, Love Letter, and other optional romantic sections—unified by parallax transitions.  
+   - **Additional Routes**: Gallery, Tribute/Guestbook, Easter Egg/Surprise, etc.  
 
-### Notable Components
-
-- **Hero.tsx**: A hero banner component (using `shadcn/ui`) for the landing page.
-- **Timeline.tsx**: Renders an interactive timeline with animations.
-- **GalleryGrid.tsx**: Displays photos in a modern grid layout using shadcn styling or a library like `react-photo-gallery`.
-- **Modal.tsx**: A modal component for enlarged images or additional messages.
-- **Forms**: If you include a guestbook, create a small form for users to leave messages and store them in a simple database or JSON.
+3. **Design & Themes**  
+   - Romantic color palette (soft pinks, warm golds, ivory, subtle floral or love-themed visuals).  
+   - Elegant typography, mild gradients, and decorative flourishes (hearts, petals, swirling motifs).  
+   - Smooth, subtle animations that reinforce the emotional tone without overwhelming users.
 
 ---
 
-## 3. Proposed Breakdown of Tasks & Timeline (3 Weeks)
+## 2. Single-Page Main Layout
 
-Below is a suggested schedule to complete the project in **3 weeks**:
+Below is a high-level structure for the main page. Each section flows into the next using smooth scrolling and parallax backgrounds.
 
-### Week 1: Setup & Basic Structure
+### 2.1 Landing (Hero) Section
 
-1. **Project Setup (Day 1)**  
-   - Initialize the Next.js project:  
-
-     ```bash
-     npx create-next-app@latest my-anniversary-website
-     ```
-
-   - Install dependencies for `shadcn/ui`:  
-
-     ```bash
-     npm install shadcn/ui
-     ```
-
-   - Configure `shadcn/ui` in your `shadcn-ui.config.js` (or equivalent config).
-   - Set up GitHub repository (optional but recommended).
-2. **Basic Layout & Routing (Days 2-3)**  
-   - Create the `layout.tsx` and define the overall site layout (header, footer, global CSS).
-   - Set up pages for **Landing**, **Our Story**, **Gallery**, **Letter**, and **Guestbook** (optional).
-3. **Styling & Theme Setup (Days 4-5)**  
-   - Decide on a color palette (romantic tones, e.g., soft pinks, golds, whites).  
-   - Configure the theming if necessary (e.g., customizing `shadcn` components).
-   - Create a consistent design style across pages.
-
-### Week 2: Core Features & Content
-
-1. **Our Story Timeline (Days 1-2)**  
-   - Implement a **Timeline** component with smooth animations.  
-   - Dynamically load milestones from a JSON file or inline data.
-2. **Photo Gallery (Days 3-4)**  
-   - Build the **GalleryGrid** component.  
-   - Allow click-to-open a **Modal** for a larger view.  
-   - Optimize images for performance (Next.js `Image` component).
-3. **Love Letter / Message Section (Days 5-6)**  
-   - Create a dedicated page with a heartfelt message.  
-   - Optionally add a background audio player or voice note.
-
-### Week 3: Additional Sections, Polishing, and Deployment
-
-1. **Guestbook (Optional) (Days 1-2)**  
-   - Set up a simple form to capture messages.  
-   - Store messages in a file or a lightweight database (e.g., SQLite or a serverless DB).  
-   - Handle basic validations (e.g., required name and message fields).
-2. **Surprise / Easter Egg (Days 3-4)**  
-   - Implement a hidden route or clickable element that unveils a special collage or video.  
-   - Add a subtle animation or playful effect for discovery.
-3. **Polish & Deployment (Days 5-7)**  
-   - Test on different devices (mobile, tablet, desktop) to ensure responsiveness.  
-   - Check performance, accessibility, and SEO.  
-   - Deploy to a platform like **Vercel**.  
-   - Purchase a custom domain if desired.
+- **Purpose**: Create an impactful first impression, set the romantic and celebratory mood.  
+- **Content Ideas**:  
+  - Full-screen background (photo or looped video) with parallax layering (the background moves slightly slower than the foreground on scroll).  
+  - Centered text: *“A Decade of Love”*, *“Celebrating 10 Years Together”*.  
+  - A “Scroll Down” arrow or button guiding visitors to the next section.  
+- **Animation Suggestions**:  
+  - Slight fade-in for the headline, timed to appear after the background.  
+  - Optional small floating heart or petals that drift gently across the hero section for a whimsical touch.
 
 ---
 
-## Code Snippets & Examples
+### 2.2 Time Since We Met (Dynamic Count-Up)
 
-### Example Landing Page (`app/page.tsx`)
-
-```tsx
-import React from 'react';
-import { Button } from '@/components/ui/button'; // Example import from shadcn/ui
-import Image from 'next/image';
-import Hero from '@/components/Hero';
-
-export default function Home() {
-  return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 bg-white">
-      {/* Hero section */}
-      <Hero
-        title="A Decade of Love"
-        subtitle="Celebrate 10 Years of Our Journey"
-        backgroundImage="/hero-background.jpg"
-      />
-
-      {/* Call-to-Action button */}
-      <Button variant="default" className="mt-8">
-        <a href="/story">Explore Our Story</a>
-      </Button>
-    </main>
-  );
-}
-```
-
-### Example Timeline Component (`components/Timeline.tsx`)
-
-```tsx
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card'; // shadcn/ui example
-
-type TimelineEvent = {
-  year: string;
-  description: string;
-  image?: string;
-};
-
-interface TimelineProps {
-  events: TimelineEvent[];
-}
-
-export const Timeline: React.FC<TimelineProps> = ({ events }) => {
-  return (
-    <div className="space-y-4">
-      {events.map((event, index) => (
-        <Card key={index} className="flex items-center space-x-4">
-          <div className="w-1/3 p-4">
-            {event.image && (
-              <img src={event.image} alt={event.description} className="rounded" />
-            )}
-          </div>
-          <CardContent className="w-2/3">
-            <h3 className="text-lg font-semibold">{event.year}</h3>
-            <p>{event.description}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-};
-```
-
-### Example Modal for Photo Gallery (`components/Modal.tsx`)
-
-```tsx
-import React from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-
-interface ModalProps {
-  open: boolean;
-  onClose: () => void;
-  title?: string;
-  children: React.ReactNode;
-}
-
-export const Modal: React.FC<ModalProps> = ({ open, onClose, title, children }) => {
-  return (
-    <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-screen-sm">
-        <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-        </DialogHeader>
-        {children}
-      </DialogContent>
-    </Dialog>
-  );
-};
-```
+- **Purpose**: Show how long you’ve been together, updating in real-time.  
+- **Layout & Ideas**:  
+  - Large, bold numeric display (e.g., “3,652 days, 12 hours, 45 minutes, 10 seconds”).  
+  - Intro text like *“Together Since …”* or *“Our Love in Numbers”*.  
+  - Subheading referencing the date you first met: *“Since the day we locked eyes...”*.  
+- **Animation Suggestions**:  
+  - Light scaling effect or gentle blinking of the colon (:) in the time display to convey liveliness.  
+  - Subtle parallax background—for instance, a faint starry sky or soft glow that shifts as you scroll.
 
 ---
 
-## Potential Edge Cases & Error Handling
+### 2.3 Interactive Timeline
 
-1. **Image Loading Errors**: Large images may fail to load or cause slow performance. Consider compressing images or using Next.js `Image` for optimization.  
-2. **Form Validation**: If you add a guestbook, ensure required fields are validated to avoid empty or malformed submissions.  
-3. **API Rate Limits**: If hosting on a free tier or serverless solution, be mindful of any rate limits for form submissions.  
-4. **Accessibility**: Add alt text for images, proper aria labels, and use semantic HTML elements to ensure an inclusive experience.  
-5. **Secrets / Private Pages**: If certain pages should remain hidden, consider password protecting or using a hidden route.  
-6. **Audio / Video Formats**: If adding audio or video, ensure cross-browser compatibility (e.g., `.mp4` or `.webm` for video, `.mp3` or `.ogg` for audio).
-
----
-
-## References
-
-- **Next.js Documentation**: [https://nextjs.org/docs](https://nextjs.org/docs)  
-- **shadcn/ui Documentation**: [https://ui.shadcn.com](https://ui.shadcn.com)
+- **Purpose**: Illustrate major milestones (wedding, trips, children, etc.) in chronological order.  
+- **Layout & Ideas**:  
+  - Vertical or horizontal progression. Each milestone includes a date, short description, and small photo/icon.  
+  - Section heading like *“Our Journey So Far”*.  
+- **Animation Suggestions**:  
+  - Each milestone card slides or fades in as the user scrolls.  
+  - A connecting line that draws itself while scrolling (if vertical), symbolizing continuity.
 
 ---
 
-## Assumptions
+### 2.4 Memory Lane Slideshow
 
-- You have a functioning Node.js environment (v16+).  
-- You are comfortable deploying the final build to a platform such as **Vercel**.  
-- You have at least a basic design concept (colors, fonts) in mind to align with a romantic theme.
-
----
-
-## Security Considerations
-
-- If including a guestbook form, sanitize inputs and avoid storing any sensitive user data.  
-- Use HTTPS when deploying publicly to protect any personal data or messages.
+- **Purpose**: Highlight mini-stories or moments in a more visual, less structured format than the timeline.  
+- **Layout & Ideas**:  
+  - A horizontal carousel or “filmstrip” featuring short, bite-sized memories.  
+  - Each slide could include a small photo, date, and humorous or heartfelt anecdote.  
+  - Auto-rotation with navigation arrows to let users browse at their own pace.  
+- **Animation Suggestions**:  
+  - Smooth sliding transitions.  
+  - Soft zoom on images when they become the active slide.
 
 ---
 
-## Caveats / Final Thoughts
+### 2.5 “10 Reasons I Love You” (or X Reasons)
 
-- Keep the site simple and personal—overly complex animations might distract from the emotional message.  
-- Test on various devices to ensure the best user experience for your wife and any guests.  
-- Be mindful of performance; images and videos can slow down loading if not optimized properly.
+- **Purpose**: Give a heartfelt breakdown of specific traits or moments you cherish.  
+- **Layout & Ideas**:  
+  - Each reason can be displayed as a numbered card or panel.  
+  - Short descriptive text: e.g., “Your unwavering support,” “How you make me laugh at the silliest things.”  
+  - Optionally, add small icons or emotive images (like a tiny laughing face for “laughter”).  
+- **Animation Suggestions**:  
+  - Sequential fade-in for each reason.  
+  - Gentle hover effect highlighting each card when hovered.
 
-**With this plan and timeline, you should be well on your way to creating a heartfelt, modern, and interactive anniversary website in just three weeks. Good luck, and enjoy surprising your wife with this special project!**
+---
+
+### 2.6 Love Letter / Personal Message
+
+- **Purpose**: Provide a direct, sincere expression of your feelings to your spouse.  
+- **Layout & Ideas**:  
+  - Single, centered column with an elegant, script-like font for the letter.  
+  - Pastel or softly tinted background with subtle floral or lace-like motifs.  
+  - Optional audio note or track of soft music that plays if the user opts in.  
+- **Animation Suggestions**:  
+  - Fade-up effect for each paragraph as the user scrolls.  
+  - Slow-floating decorative elements (hearts, petals, or ring icons) in the background.
+
+---
+
+### 2.7 Future Plans / Vision Board
+
+- **Purpose**: Outline dreams and aspirations for the next 10 years and beyond.  
+- **Layout & Ideas**:  
+  - Grid or timeline showing future milestones: traveling, family goals, joint projects, personal achievements.  
+  - Headline: *“Looking Ahead”* or *“Our Next Chapter”*.  
+- **Animation Suggestions**:  
+  - Each future goal item appears with a short bounce or scale-up animation.  
+  - A gently shifting background gradient that symbolizes optimism and growth.
+
+---
+
+### 2.8 Footer
+
+- **Purpose**: Concludes the single-page experience.  
+- **Layout & Ideas**:  
+  - A minimal strip with names, an anniversary date, a small tagline like *“Ten Years and Counting”*.  
+  - Optional social media links or a final “Thank You for Visiting” note.  
+- **Animation Suggestions**:  
+  - A final parallax shift as you reach the bottom, revealing decorative elements (floral border, ring icons, hearts).
+
+---
+
+## 3. Additional Pages & Routes
+
+While the main story unfolds on a single scrollable page, you can link to extra routes for more robust or interactive content.
+
+### 3.1 Photo Gallery
+
+- **Route**: `/gallery`  
+- **Purpose**: Show a more extensive album beyond the highlights on the main page.  
+- **Layout & Ideas**:  
+  - Masonry or grid layout, possibly sorted by year or theme (“Wedding,” “Vacations,” “Daily Life,” etc.).  
+  - Clicking images opens a larger slideshow or lightbox.  
+- **Animation Suggestions**:  
+  - Images gently fade or scale in as the user scrolls or filters them.  
+  - Hover effects that lightly zoom or rotate the photo thumbnail.
+
+---
+
+### 3.2 Tribute / Guestbook
+
+- **Route**: `/tribute` or `/guestbook`  
+- **Purpose**: Let friends/family post short messages or tributes for your anniversary.  
+- **Layout & Ideas**:  
+  - A friendly form collecting name, message, and optional photo or emoji.  
+  - Display messages in chronological order or a mosaic of tributes.  
+- **Animation Suggestions**:  
+  - Subtle expansion of a new message card as it’s added.  
+  - Confetti effect or small heart float-in to celebrate a new entry.
+
+---
+
+### 3.3 Easter Egg / Surprise
+
+- **Route**: `/surprise` (hidden link or code)  
+- **Purpose**: Add a secret, whimsical treat—a video, collage, or game.  
+- **Layout & Ideas**:  
+  - Potentially a montage of goofy or tender clips not shown elsewhere.  
+  - A small puzzle or “click-the-heart” game that triggers a personalized message.  
+- **Animation Suggestions**:  
+  - Dramatic reveal or burst effect once the user cracks the secret link.  
+  - Could sync with a fun audio snippet (laugh track, confetti pop sound, etc.).
+
+---
+
+## 4. Parallax & Animation Suggestions
+
+- **Layered Parallax**  
+  - Hero background, mid-layer patterns (soft shapes or abstract swirls), and foreground text moving at different speeds.  
+  - Add parallax images or backgrounds behind each major section divider, so as you scroll, images shift gracefully.
+- **Smooth Scroll**  
+  - Use a gentle, decelerated scrolling behavior for transitions between sections.  
+  - Each new section can fade in or slide up from below the fold.
+- **Subtle Hover & Click Effects**  
+  - Make interactive elements (buttons, cards, images) respond with micro-animations (scale, color shift, shadow pop).  
+  - Ensures the site feels polished and dynamic.
+
+---
+
+## 5. Timeline & Tasks
+
+Below is a proposed schedule; adapt it to your actual availability:
+
+1. **Week 1: Setup & Initial Design**  
+   - Initialize Next.js project.  
+   - Configure Tailwind CSS and shadcn UI.  
+   - Define color palette, fonts, and overall design scheme (romantic, elegant).
+2. **Week 2: Core Single-Page Sections**  
+   - Create Hero, Time Since We Met, Timeline, Love Letter, Future Plans, and Footer.  
+   - Implement parallax backgrounds and basic animations.  
+   - Add placeholder text and images for initial testing.
+3. **Week 3: Additional Routes & Final Polish**  
+   - Build out `/gallery`, `/tribute`, and `/surprise` pages.  
+   - Test interactions, refine animations, and finalize visual consistency.  
+   - Deploy to a hosting platform (e.g., Vercel) and share with friends/family.
+
+---
+
+## 6. Wrap-Up & Additional Romantic Touches
+
+- **Interactive Elements**: Add playful microgames or hover-based reveals (e.g., hidden hearts that appear on certain sections).  
+- **Themed Icons & Decorations**: Consider custom icons that represent your journey—wedding rings, plane icons for trips, little houses for shared homes, etc.  
+- **Personal Narration**: If you feel comfortable, record a short audio commentary or mini “podcast” snippet to guide your wife through each milestone.  
+- **Future-Proofing**: Keep the content easily updatable so you can celebrate each new anniversary or major life event by adding new slides or timeline entries.
