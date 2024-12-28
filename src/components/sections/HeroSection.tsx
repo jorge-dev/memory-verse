@@ -1,88 +1,119 @@
 "use client";
-
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
+import Image from "next/image";
 
 interface HeroSectionProps {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   backgroundImage?: string;
 }
 
-export function HeroSection({ title, subtitle, backgroundImage }: HeroSectionProps) {
-  const [scrollY, setScrollY] = useState(0);
+export function HeroSection({ title, subtitle }: HeroSectionProps) {
+  const image1 = "https://picsum.photos/seed/hero1/3840/2160.webp";
+  const image2 = "https://picsum.photos/seed/hero2/3840/2160.webp";
+  const image3 = "https://picsum.photos/seed/hero3/3840/2160.webp";
+  const image4 = "https://picsum.photos/seed/hero4/3840/2160.webp";
+  const image5 = "https://picsum.photos/seed/hero5/3840/2160.webp";
+  const image6 = "https://picsum.photos/seed/hero6/3840/2160.webp";
+  const image7 = "https://picsum.photos/seed/hero7/3840/2160.webp";
+  // const image8 = "https://picsum.photos/seed/hero8/3840/2160.webp";
+  const image8 =
+    "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2fKbopDGrHjEJRTgF7rez3fmOKAZU5y0utVXG9";
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
+
+  const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
+  const scale5 = useTransform(scrollYProgress, [0, 1], [1, 5]);
+  const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
+  const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
+  const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
+
+  const opacity = useTransform(scrollYProgress, [0.8, 1], [0, 1]);
+
+  const pictures = [
+    {
+      src: image1,
+      scale: scale4,
+    },
+    {
+      src: image2,
+      scale: scale5,
+    },
+    {
+      src: image3,
+      scale: scale6,
+    },
+    {
+      src: image4,
+      scale: scale5,
+    },
+    {
+      src: image5,
+      scale: scale6,
+    },
+    {
+      src: image6,
+      scale: scale8,
+    },
+    {
+      src: image7,
+      scale: scale9,
+    },
+    {
+      src: image8,
+      scale: scale4,
+    },
+  ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Parallax Background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: `translateY(${scrollY * 0.5}px)`,
-        }}
-      />
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30" />
-
-      {/* Content */}
-      <div className="relative z-10 text-center text-white px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="text-5xl md:text-7xl font-bold mb-4"
-        >
-          {title}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="text-xl md:text-2xl opacity-90"
-        >
-          {subtitle}
-        </motion.p>
-      </div>
-
-      {/* Scroll Down Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        onClick={() => window.scrollTo({
-          top: window.innerHeight,
-          behavior: 'smooth'
+    <section ref={container} className="h-[300vh]  relative">
+      <div className="sticky top-0 h-screen overflow-hidden">
+        {pictures.map(({ src, scale }, index) => {
+          return (
+            <motion.div
+              key={index}
+              style={{ scale }}
+              className="w-full h-full absolute top-0 flex items-center justify-center"
+            >
+              <div
+                className={`relative ${
+                  index === 0
+                    ? "w-full h-full"
+                    : index === 1
+                    ? "w-[35vw] h-[30vh] -top-[30vh] left-[5vw]"
+                    : index === 2
+                    ? "w-[20vw] h-[45vh] -top-[10vh] -left-[25vw]"
+                    : index === 3
+                    ? "w-[25vw] h-[25vh] left-[27.5vw]"
+                    : index === 4
+                    ? "w-[20vw] h-[25vh] top-[27.5vh] left-[5vw]"
+                    : index === 5
+                    ? "w-[30vw] h-[25vh] top-[27.5vh] -left-[22.5vw]"
+                    : index === 6
+                    ? "w-[25vw] h-[25vh] top-[27.5vh] left-[29.5vw]"
+                    : "w-[25vw] h-[25vh]"
+                }`}
+              >
+                <Image src={src} fill alt="image" objectFit="cover" />
+              </div>
+            </motion.div>
+          );
         })}
-      >
-        <div className="text-white text-sm mb-2">Scroll Down</div>
-        <svg 
-          className="w-6 h-6 text-white"
-          fill="none"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ opacity }}
         >
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </motion.div>
+          <div className="text-center text-white px-4">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4">{title}</h1>
+            <p className="text-xl md:text-2xl opacity-90">{subtitle}</p>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
