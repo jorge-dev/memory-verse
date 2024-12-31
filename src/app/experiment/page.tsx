@@ -4,8 +4,8 @@ import { TimeCounter } from "@/components/sections/TimeCounter";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { ModeToggle } from "@/components/DarkModeToggle";
 import { Clock } from "@/components/clock";
-import { ModeToggle } from "@/components/dark-mode-toggle";
 
 interface ExperimentalFeature {
   title: string;

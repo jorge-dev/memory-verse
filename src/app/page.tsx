@@ -1,5 +1,5 @@
 "use client";
-import { ModeToggle } from "@/components/dark-mode-toggle";
+import { ModeToggle } from "@/components/DarkModeToggle";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TimeCounter } from "@/components/sections/TimeCounter";
 import { Timeline } from "@/components/sections/Timeline";
