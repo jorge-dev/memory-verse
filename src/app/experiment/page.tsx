@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { useEffect } from "react";
 import Lenis from "lenis";
 import { ModeToggle } from "@/components/DarkModeToggle";
-import { Clock } from "@/components/clock";
+import { Clock } from "@/components/Clock";
 
 interface ExperimentalFeature {
   title: string;
@@ -35,7 +35,7 @@ export default function ExperimentPage() {
     {
       title: "Time Counter",
       description: "Tracks time since a specific date",
-      component: <TimeCounter startDate={new Date("2024-01-01")} />,
+      component: <TimeCounter startDate={new Date("2015-01-03T00:00:00Z")} />,
     },
   ];
 
