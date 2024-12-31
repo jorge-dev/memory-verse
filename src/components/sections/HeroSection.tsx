@@ -19,7 +19,7 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
   const image7 = "https://picsum.photos/seed/hero7/3840/2160.webp";
   // const image8 = "https://picsum.photos/seed/hero8/3840/2160.webp";
   const image8 =
-    "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2fKbopDGrHjEJRTgF7rez3fmOKAZU5y0utVXG9";
+    "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2fTBmoz5l8FgW3GZLdJMrQPImcj5fpaRHwCkx1";
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
