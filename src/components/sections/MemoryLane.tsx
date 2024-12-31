@@ -1,8 +1,7 @@
-
 "use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React, { useState } from "react";
+import Image from "next/image";
 
 interface Memory {
   id: number;
@@ -24,17 +23,19 @@ export function MemoryLane({ memories }: MemoryLaneProps) {
   };
 
   const previousMemory = () => {
-    setActiveIndex((current) => (current - 1 + memories.length) % memories.length);
+    setActiveIndex(
+      (current) => (current - 1 + memories.length) % memories.length
+    );
   };
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-white/30 dark:bg-gray-800/30">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-gray-100">
           Memory Lane
         </h2>
         <div className="max-w-4xl mx-auto">
-          <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <div className="relative bg-white/50 dark:bg-gray-800/50 rounded-lg shadow-lg p-6">
             <button
               onClick={previousMemory}
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-700/80 p-2 rounded-full"
@@ -47,7 +48,7 @@ export function MemoryLane({ memories }: MemoryLaneProps) {
             >
               →
             </button>
-            
+
             <div className="space-y-4">
               <div className="relative aspect-video w-full">
                 <Image
