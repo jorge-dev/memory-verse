@@ -17,7 +17,6 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
   const image5 = "https://picsum.photos/seed/hero5/3840/2160.webp";
   const image6 = "https://picsum.photos/seed/hero6/3840/2160.webp";
   const image7 = "https://picsum.photos/seed/hero7/3840/2160.webp";
-  // const image8 = "https://picsum.photos/seed/hero8/3840/2160.webp";
   const image8 =
     "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2fTBmoz5l8FgW3GZLdJMrQPImcj5fpaRHwCkx1";
 
