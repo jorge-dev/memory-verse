@@ -9,6 +9,7 @@ import { MemoryLane } from "@/components/sections/MemoryLane";
 import { Footer } from "@/components/sections/Footer";
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { AnimatedSection } from "@/components/AnimatedSection";
 const timelineEvents = [
   {
     date: "June 2013",
@@ -121,27 +122,40 @@ export default function Home() {
   }, []);
 
   return (
-    <main className=" relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <main className="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="fixed top-4 right-4 z-50">
         <ModeToggle />
       </div>
 
+      {/* HeroSection doesn't need AnimatedSection as it has its own animations */}
       <HeroSection
         title="A Journey of Love"
         subtitle="Our Story Through the Years"
       />
 
-      <TimeCounter startDate={new Date("2015-01-03")} />
+      <AnimatedSection delay={0.2}>
+        <TimeCounter startDate={new Date("2015-01-03")} />
+      </AnimatedSection>
 
-      <Timeline events={timelineEvents} />
+      <AnimatedSection delay={0.3}>
+        <Timeline events={timelineEvents} />
+      </AnimatedSection>
 
-      <MemoryLane memories={memories} />
+      <AnimatedSection delay={0.2}>
+        <MemoryLane memories={memories} />
+      </AnimatedSection>
 
-      <LoveReasons reasons={loveReasons} />
+      <AnimatedSection delay={0.3}>
+        <LoveReasons reasons={loveReasons} />
+      </AnimatedSection>
 
-      <LoveLetter {...loveLetter} />
+      <AnimatedSection delay={0.2}>
+        <LoveLetter {...loveLetter} />
+      </AnimatedSection>
 
-      <Footer {...footerData} />
+      <AnimatedSection delay={0.3}>
+        <Footer {...footerData} />
+      </AnimatedSection>
     </main>
   );
 }
