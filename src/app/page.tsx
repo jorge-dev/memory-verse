@@ -131,19 +131,17 @@ export default function Home() {
         subtitle="Our Story Through the Years"
       />
 
-      <div className="space-y-20">
-        <TimeCounter startDate={new Date("2015-01-03")} />
+      <TimeCounter startDate={new Date("2015-01-03")} />
 
-        <Timeline events={timelineEvents} />
+      <Timeline events={timelineEvents} />
 
-        <MemoryLane memories={memories} />
+      <MemoryLane memories={memories} />
 
-        <LoveReasons reasons={loveReasons} />
+      <LoveReasons reasons={loveReasons} />
 
-        <LoveLetter {...loveLetter} />
+      <LoveLetter {...loveLetter} />
 
-        <Footer {...footerData} />
-      </div>
+      <Footer {...footerData} />
     </main>
   );
 }
