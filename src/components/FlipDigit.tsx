@@ -22,7 +22,7 @@ export const FlipCard = ({ digit }: FlipCardProps) => {
           {digit}
         </motion.div>
       </AnimatePresence>
-      <div className="absolute inset-x-0 top-1/2 h-px bg-border dark:bg-gray-600 opacity-20" />
+      <div className="absolute inset-x-0 top-1/2 h-px bg-border  dark:bg-gray-800 opacity-50" />
     </div>
   );
 };
