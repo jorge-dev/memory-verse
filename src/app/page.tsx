@@ -127,15 +127,36 @@ export default function Home() {
         <ModeToggle />
       </div>
 
-      {/* HeroSection doesn't need AnimatedSection as it has its own animations */}
       <HeroSection
         title="A Journey of Love"
         subtitle="Our Story Through the Years"
       />
 
-      <AnimatedSection delay={0.2}>
-        <TimeCounter startDate={new Date("2015-01-03")} />
-      </AnimatedSection>
+      <div className="flex flex-col space-y-8 px-4 py-12">
+        <AnimatedSection delay={0.2}>
+          <TimeCounter
+            startDate={new Date("2011-08-14T00:00:00Z")}
+            title="Since We First Met"
+            description="The day our story began"
+          />
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.3}>
+          <TimeCounter
+            startDate={new Date("2012-01-04T00:00:00Z")}
+            title="Since We Started Dating"
+            description="When friendship turned to love"
+          />
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.4}>
+          <TimeCounter
+            startDate={new Date("2015-01-03T00:00:00Z")}
+            title="Since We Got Married"
+            description="The day we said 'I do'"
+          />
+        </AnimatedSection>
+      </div>
 
       <AnimatedSection delay={0.3}>
         <Timeline events={timelineEvents} />
