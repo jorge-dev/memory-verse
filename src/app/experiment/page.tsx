@@ -35,12 +35,18 @@ export default function ExperimentPage() {
     {
       title: "Time Counter",
       description: "Tracks time since a specific date",
-      component: <TimeCounter startDate={new Date("2015-01-03T00:00:00Z")} />,
+      component: (
+        <TimeCounter
+          startDate={new Date("2015-01-03T00:00:00Z")}
+          title="Time Since Launch"
+          description="Tracking our journey from the beginning"
+        />
+      ),
     },
   ];
 
   return (
-    <main className="relative  from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-6 space-y-6">
+    <main className="relative   p-6 space-y-6">
       <div className="fixed top-4 right-4 z-50">
         <ModeToggle />
       </div>
@@ -53,7 +59,7 @@ export default function ExperimentPage() {
         </p>
       </header>
 
-      <section className="container mx-auto bg-white/30 dark:bg-gray-800/30">
+      <section className="container mx-auto ">
         {experimentalFeatures.map((feature, index) => (
           <AnimatedSection key={feature.title} delay={0.2 * index}>
             <div className="border border-border rounded-lg p-6 mb-6">
