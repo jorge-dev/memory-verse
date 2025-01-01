@@ -1,11 +1,20 @@
 "use client";
 
 import { useEffect, useState, memo } from "react";
-import { FlipCard } from "../FlipDigit";
+import { FlipCard } from "@/components/FlipDigit";
 import { calculateTimeElapsed, TimeElapsed } from "@/utils/dateUtils";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface TimeCounterProps {
   startDate: Date;
+  title?: string;
+  description?: string;
 }
 
 const MemoizedFlipCard = memo(FlipCard);
@@ -16,14 +25,16 @@ const TimeUnit = memo(({ value, label }: { value: number; label: string }) => (
       <MemoizedFlipCard digit={Math.floor(value / 10)} />
       <MemoizedFlipCard digit={value % 10} />
     </div>
-    <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-      {label}
-    </span>
+    <span className="text-sm text-muted-foreground font-medium">{label}</span>
   </div>
 ));
 TimeUnit.displayName = "TimeUnit";
 
-export function TimeCounter({ startDate }: TimeCounterProps) {
+export function TimeCounter({
+  startDate,
+  title = "Time Together",
+  description = "Every second with you has been a blessing",
+}: TimeCounterProps) {
   const [timeElapsed, setTimeElapsed] = useState<TimeElapsed>(
     calculateTimeElapsed(startDate)[0]!
   );
@@ -55,29 +66,33 @@ export function TimeCounter({ startDate }: TimeCounterProps) {
     return () => clearInterval(timer);
   }, [startDate]);
 
-  return (
-    <section className="py-20 bg-white/30 dark:bg-gray-800/30">
-      <div className="container mx-auto text-center">
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-4xl font-bold text-foreground dark:text-gray-100">
-              Time Together
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Every second with you has been a blessing
-            </p>
-          </div>
+  const Separator = () => (
+    <div className="flex items-center h-full">
+      <span className="text-2xl font-bold text-muted-foreground -mt-4">:</span>
+    </div>
+  );
 
-          <div className="flex flex-wrap justify-center gap-8">
-            <TimeUnit value={timeElapsed.years} label="Years" />
-            <TimeUnit value={timeElapsed.months} label="Months" />
-            <TimeUnit value={timeElapsed.days} label="Days" />
-            <TimeUnit value={timeElapsed.hours} label="Hours" />
-            <TimeUnit value={timeElapsed.minutes} label="Minutes" />
-            <TimeUnit value={timeElapsed.seconds} label="Seconds" />
-          </div>
+  return (
+    <Card className="border-none bg-white/30 dark:bg-gray-800/30 max-w-6xl mx-auto w-full">
+      <CardHeader className="text-center">
+        <CardTitle className="text-4xl font-bold">{title}</CardTitle>
+        <CardDescription className="text-lg">{description}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="flex flex-wrap justify-center gap-4 items-center">
+          <TimeUnit value={timeElapsed.years} label="Years" />
+          <Separator />
+          <TimeUnit value={timeElapsed.months} label="Months" />
+          <Separator />
+          <TimeUnit value={timeElapsed.days} label="Days" />
+          <Separator />
+          <TimeUnit value={timeElapsed.hours} label="Hours" />
+          <Separator />
+          <TimeUnit value={timeElapsed.minutes} label="Minutes" />
+          <Separator />
+          <TimeUnit value={timeElapsed.seconds} label="Seconds" />
         </div>
-      </div>
-    </section>
+      </CardContent>
+    </Card>
   );
 }
