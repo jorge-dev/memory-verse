@@ -25,13 +25,14 @@ export function calculateTimeElapsed(startDate: Date, endDate: Date = new Date()
   const start = new Date(startDate);
   const end = new Date(endDate);
 
-  let years = end.getFullYear() - start.getFullYear();
-  let months = end.getMonth() - start.getMonth();
-  let days = end.getDate() - start.getDate();
+  let years = end.getUTCFullYear() - start.getUTCFullYear();
+  let months = end.getUTCMonth() - start.getUTCMonth();
+  let days = end.getUTCDate() - start.getUTCDate();
 
   if (days < 0) {
     months -= 1;
-    days += new Date(end.getFullYear(), end.getMonth(), 0).getDate();
+    const lastDayOfMonth = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), 0)).getUTCDate();
+    days += lastDayOfMonth;
   }
 
   if (months < 0) {
