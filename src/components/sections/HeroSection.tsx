@@ -99,7 +99,7 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
                     : "w-[25vw] h-[25vh]"
                 }`}
               >
-                <Image src={src} fill alt="image" objectFit="cover" />
+                <Image src={src} fill alt="image" />
               </div>
             </motion.div>
           );
