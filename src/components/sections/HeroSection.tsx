@@ -33,7 +33,7 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
   const scaleLastImage = useTransform(scrollYProgress, [0, 0.9, 1], [1, 4, 4]);
 
-  const opacity = useTransform(scrollYProgress, [0.3, 1], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.1, 1], [0, 1]);
 
   const pictures = [
     {
