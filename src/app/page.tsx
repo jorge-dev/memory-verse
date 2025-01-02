@@ -133,7 +133,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <main className="relative bg-background dark:bg-background-dark text-foreground dark:text-foreground">
       <div className="fixed top-4 right-4 z-50">
         <ModeToggle />
       </div>

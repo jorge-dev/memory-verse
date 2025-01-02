@@ -37,12 +37,12 @@ export function LoveCounters() {
 
   return (
     <section className="space-y-8 px-4 py-12">
-      <div className="text-center space-y-6 mb-12">
-        <div className="space-y-2">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-foreground">
+      <div className="text-center space-y-6 mt-[8vh] mb-12">
+        <div className="space-y-6">
+          <h1 className="scroll-m-20 text-5xl md:text-7xl  mb-4 font-extrabold tracking-tight lg:text-5xl text-foreground">
             Our Adventure Together
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg  max-w-2xl mx-auto">
             From shy glances on a mission trip to mountain-top vows, here&apos;s
             how long we&apos;ve been on this amazing journey! 🚀
           </p>
@@ -54,7 +54,7 @@ export function LoveCounters() {
               key={counter.title}
               className="text-center p-2 rounded-lg bg-card/50 dark:bg-gray-800/50"
             >
-              <dt className="font-medium text-muted-foreground">
+              <dt className="font-medium ">
                 {counter.title.replace("Since ", "")}
               </dt>
               <dd className="font-bold text-foreground">
