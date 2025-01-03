@@ -30,12 +30,12 @@ export default function Home() {
         <>
           <HeroSection />
 
-          <AnimatedSection delay={0.3}>
-            <LoveCounters />
-          </AnimatedSection>
-          <AnimatedSection delay={0.3}>
-            <Timeline />
-          </AnimatedSection>
+          {/* <AnimatedSection delay={0.3}> */}
+          <LoveCounters />
+          {/* </AnimatedSection> */}
+          {/* <AnimatedSection delay={0.3}> */}
+          <Timeline />
+          {/* </AnimatedSection> */}
 
           {/* <AnimatedSection delay={0.3}> */}
           <MemoryLane />
