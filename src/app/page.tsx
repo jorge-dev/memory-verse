@@ -54,9 +54,9 @@ export default function Home() {
       <LoveReasons />
       {/* </AnimatedSection> */}
 
-      <AnimatedSection delay={0.2}>
-        <LoveLetter />
-      </AnimatedSection>
+      {/* <AnimatedSection delay={0.2}> */}
+      <LoveLetter />
+      {/* </AnimatedSection> */}
 
       <AnimatedSection delay={0.3}>
         <Footer {...footerData} />

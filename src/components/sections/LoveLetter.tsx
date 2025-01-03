@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+
+import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 interface LoveLetterProps {
   content: string;
@@ -6,7 +10,7 @@ interface LoveLetterProps {
   date?: string;
 }
 
-const loveLetter = {
+const loveLetter: LoveLetterProps = {
   content: `My Dearest Love, ❤️
 
 As I sit to write this, my heart overflows with gratitude and joy as I think about that mission trip back in 2011. I remember the exact moment I saw you on that bus, laughing with your friend. Little did I know that God was setting the stage for a story far more beautiful than I could have imagined.
@@ -30,31 +34,55 @@ As I look to the future, my heart is filled with anticipation for the adventures
 
 export function LoveLetter() {
   return (
-    <section className="py-20 ">
-      <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto bg-white/50 dark:bg-gray-800/50 p-8 md:p-12 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-serif text-center mb-8 text-gray-800 dark:text-gray-100">
-            My Love Letter to You
-          </h2>
-          <div className="space-y-4 font-serif">
-            {loveLetter.content.split("\n").map((paragraph, index) => (
-              <p
-                key={index}
-                className="text-gray-700 dark:text-gray-300 leading-relaxed"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
-          <div className="mt-8 text-right">
-            <p className="text-gray-600 dark:text-gray-400 italic mb-2">
-              {loveLetter.date}
+    <section className="relative mt-[10vh] mb-9">
+      <div className="container mx-auto">
+        <div className="text-center space-y-6 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="scroll-m-20 text-5xl md:text-7xl font-extrabold tracking-tight lg:text-5xl text-foreground">
+              My Love Letter
+            </h1>
+            <p className="text-lg max-w-2xl mx-auto mt-4 text-muted-foreground">
+              Words from the heart, written with love 💌
             </p>
-            <p className="text-xl font-serif text-gray-800 dark:text-gray-200">
-              {loveLetter.signature}
-            </p>
-          </div>
+          </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <Card className="max-w-3xl mx-auto backdrop-blur-sm border-none bg-gray-100/50 dark:bg-gray-800/50  h-full bg-opacity-50 dark:bg-opacity-50">
+            <div className="p-8 md:p-12">
+              <Heart className="w-8 h-8 mx-auto mb-8 text-pink-500" />
+
+              <div className="space-y-4 font-serif text-lg">
+                {loveLetter.content.split("\n").map((paragraph, index) => (
+                  <p key={index} className="leading-relaxed text-foreground/80">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              <div className="mt-12 text-right space-y-2">
+                <p className="italic text-muted-foreground">
+                  {loveLetter.date}
+                </p>
+                <p className="text-xl font-serif text-foreground">
+                  {loveLetter.signature.split("\n").map((line, i) => (
+                    <span key={i} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );
