@@ -230,19 +230,19 @@ export function Timeline() {
             contentStyle={{
               background: isDark
                 ? "rgba(31, 41, 55, 0.5)"
-                : "rgba(255, 255, 255, 0.5)",
+                : "rgba(233, 234, 236, 0.5)", // Changed to lighter gray
               color: isDark ? "#fff" : "#1f2937",
               boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-              borderRadius: "0.5rem",
+              borderRadius: "1.5rem",
             }}
             contentArrowStyle={{
               borderRight: isDark
-                ? "7px solid rgba(31, 41, 55, 0.5)"
-                : "7px solid rgba(255, 255, 255, 0.5)",
+                ? "20px solid rgba(31, 41, 55, 0.5)"
+                : "20px solid rgba(240, 240, 240, 0.5)", // Changed to lighter gray
             }}
             icon={<event.icon size={20} />}
             iconStyle={{
-              background: isDark ? "#374151" : "#fff",
+              background: isDark ? "#374151" : "#f3f4f6", // Changed to lighter gray
               color: isDark ? "#fff" : "#1f2937",
             }}
           >
