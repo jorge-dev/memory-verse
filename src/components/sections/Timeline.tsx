@@ -215,7 +215,7 @@ export function Timeline() {
   };
 
   return (
-    <section className="space-y-8 px-4 py-12">
+    <section className="space-y-8 px-4 py-12" suppressHydrationWarning>
       <div className="text-center space-y-6 mt-[8vh] mb-12">
         <div className="space-y-6">
           <h1 className="scroll-m-20 text-5xl md:text-7xl mb-4 font-extrabold tracking-tight lg:text-5xl text-foreground">
