@@ -1,5 +1,4 @@
 "use client";
-import { ModeToggle } from "@/components/DarkModeToggle";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { Timeline } from "@/components/sections/Timeline";
 import { LoveReasons } from "@/components/sections/LoveReasons";
@@ -27,9 +26,6 @@ export default function Home() {
 
   return (
     <main className="relative bg-background dark:bg-background-dark text-foreground dark:text-foreground">
-      <div className="fixed top-4 right-4 z-50">
-        <ModeToggle />
-      </div>
       {isClient && (
         <>
           <HeroSection
