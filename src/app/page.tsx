@@ -11,12 +11,6 @@ import Lenis from "lenis";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { LoveCounters } from "@/components/sections/LoveCounters";
 
-const footerData = {
-  message:
-    "To my beloved Rebekah, who makes every day of my life more beautiful than I could have ever imagined.",
-  signature: "With all my love, Jorge",
-};
-
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
@@ -59,7 +53,7 @@ export default function Home() {
       {/* </AnimatedSection> */}
 
       <AnimatedSection delay={0.3}>
-        <Footer {...footerData} />
+        <Footer />
       </AnimatedSection>
     </main>
   );
