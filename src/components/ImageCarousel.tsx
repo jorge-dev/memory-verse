@@ -2,15 +2,10 @@
 
 import * as React from "react";
 import Image from "next/image";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ImageCarouselProps {
   images: string[];
@@ -71,22 +66,9 @@ export function ImageCarousel({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChangeAction}>
-      <DialogContent className="max-w-[95vw] h-[90vh] p-0 overflow-hidden bg-background dark:bg-background-dark">
-        <DialogHeader className="absolute top-0 left-0 right-0 z-50 bg-background/80 dark:bg-background-dark/80 backdrop-blur-sm p-4">
-          <DialogTitle className="text-lg font-semibold text-foreground">
-            {title} - {currentIndex + 1} of {images.length}
-          </DialogTitle>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-2 top-2 text-foreground hover:text-foreground/80"
-            onClick={() => onOpenChangeAction(false)}
-          >
-            <X className="h-4 w-4" />
-          </Button>
-        </DialogHeader>
-
-        <div className="relative w-full h-full flex items-center justify-center bg-background dark:bg-background-dark">
+      <DialogContent className="max-w-[95vw] h-[90vh] p-0 overflow-hidden ">
+        <DialogTitle className="hidden">{title}</DialogTitle>
+        <div className="relative w-full h-full flex items-center justify-center bg-gray-200 dark:bg-background-dark">
           <div className="relative w-full h-full">
             {images.map((src, index) => (
               <div
