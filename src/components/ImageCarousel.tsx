@@ -12,6 +12,7 @@ interface ImageCarouselProps {
   title: string;
   open: boolean;
   onOpenChangeAction: (open: boolean) => void;
+  initialIndex?: number; // Add this prop
 }
 
 export function ImageCarousel({
@@ -19,12 +20,13 @@ export function ImageCarousel({
   title,
   open,
   onOpenChangeAction,
+  initialIndex = 0, // Default value
 }: ImageCarouselProps) {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [currentIndex, setCurrentIndex] = React.useState(initialIndex);
   const [slideDirection, setSlideDirection] = React.useState<"left" | "right">(
     "right"
   );
-  const [previousIndex, setPreviousIndex] = React.useState(0);
+  const [previousIndex, setPreviousIndex] = React.useState(initialIndex);
 
   const showNext = React.useCallback(() => {
     setPreviousIndex(currentIndex);
@@ -63,9 +65,10 @@ export function ImageCarousel({
   // Reset index when dialog opens
   React.useEffect(() => {
     if (open) {
-      setCurrentIndex(0);
+      setCurrentIndex(initialIndex);
+      setPreviousIndex(initialIndex);
     }
-  }, [open]);
+  }, [open, initialIndex]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChangeAction}>
