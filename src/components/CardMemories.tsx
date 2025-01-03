@@ -61,7 +61,13 @@ const CardMemories = ({
 
           <div className="relative w-[60%] h-full rounded-[25px] overflow-hidden">
             <motion.div className="w-full h-full" style={{ scale: imageScale }}>
-              <Image fill src={image} alt="image" className="object-cover" />
+              <Image
+                fill
+                src={image}
+                alt="image"
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </motion.div>
           </div>
         </div>

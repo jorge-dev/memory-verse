@@ -3,6 +3,7 @@
 import { useScroll } from "framer-motion";
 import CardMemories from "../CardMemories";
 import { useRef } from "react";
+import { getByName } from "@/data/images";
 
 interface Memory {
   id: number;
@@ -12,52 +13,52 @@ interface Memory {
   description: string;
   color: string;
 }
-const memories: Memory[] = [
+
+export const memories: Memory[] = [
   {
     id: 1,
-    image: "https://picsum.photos/seed/memory1/800/600",
-    date: "August 2011",
-    title: "The Mission Trip Beginning",
+    image: getByName("2011 - 1 of 5.jpeg")!.url,
+    date: "Summer 2011",
+    title: "A Fateful Bus Ride",
     description:
-      "That first glimpse of you on the bus. Who knew God had such amazing plans in store? 🙏",
+      "The moment I spotted you on that mission trip bus, my heart whispered, ‘This one’s special.’",
     color: "rgba(255, 218, 224, 0.8)", // Soft pink
   },
   {
     id: 2,
-    image: "https://picsum.photos/seed/memory2/800/600",
-    date: "January 2012",
-    title: "When Everything Changed",
+    image: getByName("2015 - 12 of 84.jpeg")!.url,
+    date: "Summer 2014",
+    title: "Saying Yes to Forever",
     description:
-      "From mission partners to life partners - best upgrade ever! 🎉",
+      "That life-changing evening when you said 'Yes' and we began our forever.",
     color: "rgba(204, 229, 255, 0.8)", // Soft blue
   },
   {
     id: 3,
-    image: "https://picsum.photos/seed/memory3/800/600",
-    date: "January 2015",
-    title: "Mountain-Top Promises",
+    date: "Fall 2015",
+    image: getByName("2015 - 71 of 84.jpeg")!.url,
+    title: "Canadian Adventure Begins",
     description:
-      "Our wedding day in the mountains - pretty sure we were literally on cloud nine! ⛰️",
+      "Starting our new chapter together in beautiful Calgary. The wait made our reunion even sweeter! 🍁",
     color: "rgba(215, 236, 208, 0.8)", // Soft green
   },
   {
     id: 4,
-    image: "https://picsum.photos/seed/memory4/800/600",
-    date: "June 2019",
-    title: "The Ultimate Adventure",
+    image: getByName("2019 - 13 of 29.jpeg")!.url,
+    date: "2018",
+    title: "Our First Little Miracle",
     description:
-      "We've been on some wild rides, but nothing compares to the journey of parenthood! 👶",
+      "The day Emma arrived, our hearts grew in ways we never imagined possible.",
     color: "rgba(255, 248, 204, 0.8)", // Soft yellow
   },
   {
     id: 5,
-    image: "https://picsum.photos/seed/memory6/800/600",
+    image: getByName("2024 - 21 of 23.jpeg")!.url,
     date: "Present Day",
-    title: "The Future Awaits",
+    title: "A Home Filled with Laughter",
     description:
-      "Who knows what's next? I'm just excited to find out with you by my side. 💖",
-    // Soft purple
-    color: "rgba(229, 204, 255, 0.8)",
+      "Our hearts overflow with joy as we watch our three amazing daughters grow, filling our home with endless love and laughter. 💝",
+    color: "rgba(229, 204, 255, 0.8)", // Soft purple
   },
 ];
 
@@ -86,7 +87,7 @@ export function MemoryLane() {
             i={i}
             {...project}
             progress={scrollYProgress}
-            range={[i * 0.25, 1]}
+            range={[i * 0.2, 1]}
             targetScale={targetScale}
           />
         );

@@ -13,17 +13,20 @@ import {
   MessagesSquare,
   Mountain,
   Smile,
-  Coffee,
   Plane,
-  Home,
   Camera,
   Palmtree,
-  ChefHat,
+  MapPin,
   Plus,
   HeartHandshake,
+  GemIcon,
   type LucideIcon,
+  Baby,
+  Shrub,
+  HandHeart,
 } from "lucide-react";
 import { ImageStack } from "@/components/ImageStack";
+import { getByYear, getByNames } from "../../data/images";
 
 interface TimelineEvent {
   date: string;
@@ -33,175 +36,191 @@ interface TimelineEvent {
   images: string[];
 }
 
+const weddingImages = Array.from(
+  { length: 34 },
+  (_, i) => `2015 - ${i + 1} of 84.jpeg`
+);
+
+const honeymoonImages = Array.from(
+  { length: 24 },
+  (_, i) => `2015 - ${i + 35} of 84.jpeg`
+);
+
+const reunitedCanadaImages = Array.from(
+  { length: 24 },
+  (_, i) => `2015 - ${i + 60} of 84.jpeg`
+);
+
 const timelineEvents: TimelineEvent[] = [
   {
-    date: "August 2011",
-    title: "First Week of Mission Trip",
+    date: "Summer 2011",
+    title: "Mission Trip Romance",
     description:
-      "Spotted you on the bus with your friend. Little did I know that girl across the aisle would change my life forever! 😊",
+      "Spotted you on the bus with your friend - that girl across the aisle would change my life forever! 😊 After a week of stolen glances, I finally got the courage to talk to you. Turned out we made an amazing mission team! 🙌",
     icon: Bus,
-    images: [
-      `https://picsum.photos/seed/mission1/800/600`,
-      `https://picsum.photos/seed/mission2/800/600`,
-      `https://picsum.photos/seed/mission3/800/600`,
-      `https://picsum.photos/seed/mission4/800/600`,
-      `https://picsum.photos/seed/mission5/800/600`,
-      `https://picsum.photos/seed/mission6/800/600`,
-    ],
+    images: getByYear(2011)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "August 2011",
-    title: "Second Week Magic",
-    description:
-      "Finally got the courage to actually talk to you. Turned out we made an amazing mission team! 🙌",
-    icon: MessagesSquare,
-    images: [
-      `https://picsum.photos/seed/mission5/800/600`,
-      `https://picsum.photos/seed/mission6/800/600`,
-      `https://picsum.photos/seed/mission7/800/600`,
-      `https://picsum.photos/seed/mission8/800/600`,
-      `https://picsum.photos/seed/mission9/800/600`,
-    ],
-  },
-  {
-    date: "January 2012",
+    date: "Summer 2012",
     title: "More Than Mission Mates",
     description:
-      "Those mission trip conversations turned into something special. Best 'yes' ever! ❤️",
+      "Those mission trip conversations turned into something special. Im glad I replied to your message that January! 💌",
     icon: Heart,
-    images: [
-      `https://picsum.photos/seed/mission7/800/600`,
-      `https://picsum.photos/seed/mission8/800/600`,
-      `https://picsum.photos/seed/mission9/800/600`,
-      `https://picsum.photos/seed/mission10/800/600`,
-      `https://picsum.photos/seed/mission11/800/600`,
-    ],
+    images: getByYear(2012)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "January 2015",
+    date: "Summer 2013",
+    title: "Our Last Mission Trip, But Not Our Last Adventure",
+    description:
+      "Our last mission trip together, but the beginning of a lifetime of adventures! 🌍",
+    icon: MessagesSquare,
+    images: getByYear(2013)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: " Summer 2014",
+    title: "We're Engaged!",
+    description:
+      "The day you got down on one knee and asked me to be yours forever! 💍",
+    icon: GemIcon,
+    images: getByYear(2014)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "Winter 2015",
     title: "Mountain-Top Magic",
     description:
       "Said our 'I dos' with the mountains as our backdrop. The view was amazing, but you were even more breathtaking! 🏔️",
     icon: Mountain,
-    images: [
-      `https://picsum.photos/seed/mission9/800/600`,
-      `https://picsum.photos/seed/mission10/800/600`,
-      `https://picsum.photos/seed/mission11/800/600`,
-      `https://picsum.photos/seed/mission12/800/600`,
-      `https://picsum.photos/seed/mission13/800/600`,
-    ],
+    images: getByNames(weddingImages)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "Present Day",
-    title: "Still Going Strong",
+    date: "Spring 2015",
+    title: "Honeymoon Heaven",
     description:
-      "From mission fields to married life, every day's an adventure with you! 💕",
-    icon: Smile,
-    images: [
-      `https://picsum.photos/seed/mission11/800/600`,
-      `https://picsum.photos/seed/mission12/800/600`,
-      `https://picsum.photos/seed/mission13/800/600`,
-      `https://picsum.photos/seed/mission14/800/600`,
-      `https://picsum.photos/seed/mission15/800/600`,
-    ],
-  },
-  {
-    date: "March 2015",
-    title: "First Home Together",
-    description:
-      "Started our life together in our cozy little apartment. Every meal was an adventure! 🏠",
-    icon: Home,
-    images: [
-      `https://picsum.photos/seed/mission13/800/600`,
-      `https://picsum.photos/seed/mission14/800/600`,
-      `https://picsum.photos/seed/mission15/800/600`,
-      `https://picsum.photos/seed/mission16/800/600`,
-      `https://picsum.photos/seed/mission17/800/600`,
-    ],
-  },
-  {
-    date: "June 2015",
-    title: "European Adventure",
-    description:
-      "Our first big trip together! Getting lost in Paris was never more romantic. ✈️",
-    icon: Plane,
-    images: [
-      `https://picsum.photos/seed/mission15/800/600`,
-      `https://picsum.photos/seed/mission16/800/600`,
-      `https://picsum.photos/seed/mission17/800/600`,
-      `https://picsum.photos/seed/mission18/800/600`,
-      `https://picsum.photos/seed/mission19/800/600`,
-    ],
-  },
-  {
-    date: "December 2015",
-    title: "Christmas Traditions Begin",
-    description:
-      "Started our tradition of making tamales together for Christmas. Your family's recipe is now our tradition! 🎄",
-    icon: ChefHat,
-    images: [
-      `https://picsum.photos/seed/mission17/800/600`,
-      `https://picsum.photos/seed/mission18/800/600`,
-      `https://picsum.photos/seed/mission19/800/600`,
-      `https://picsum.photos/seed/mission20/800/600`,
-      `https://picsum.photos/seed/mission21/800/600`,
-    ],
-  },
-  {
-    date: "Summer 2016",
-    title: "Beach Getaway",
-    description:
-      "That weekend at the beach where we decided to make travel our thing! 🌊",
+      "Our honeymoon was the perfect start to our married life. Every moment was pure bliss! 🌴",
     icon: Palmtree,
-    images: [
-      `https://picsum.photos/seed/mission19/800/600`,
-      `https://picsum.photos/seed/mission20/800/600`,
-      `https://picsum.photos/seed/mission21/800/600`,
-      `https://picsum.photos/seed/mission22/800/600`,
-      `https://picsum.photos/seed/mission23/800/600`,
-    ],
+    images: getByNames(honeymoonImages)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "Fall 2016",
-    title: "Photography Phase",
+    date: "Fall 2015",
+    title: "Reunited in Canada",
     description:
-      "Remember when we thought we could be professional photographers? At least we got some cute pics! 📸",
+      "After months of long-distance, we were finally reunited in Canada. Every moment was worth the wait! 🍁",
+    icon: Plane,
+    images: getByNames(reunitedCanadaImages)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "2016",
+    title: "Our First Year of Marriage",
+    description:
+      "Our first year of marriage was full of ups and downs, but we faced it all together! 💕",
+    icon: Heart,
+    images: getByYear(2016)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "2017",
+    title: "Traveling the World (or i guess just the US and Canada lol 😂)",
+    description:
+      "From road trips to flights, we traveled the world together! 🌎",
+    icon: MapPin,
+    images: getByYear(2017)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "2018",
+    title: "Emma's Arrival",
+    description:
+      "The day our little Emmy was born was the best day of our lives(so far)! 👶",
+    icon: Baby,
+    images: getByYear(2018)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "2019",
+    title: "Having fun with our little but mighty family",
+    description:
+      "From family trips to movie nights, every moment with you and Emma is a treasure! 💖",
+    icon: Smile,
+    images: getByYear(2019)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "2020",
+    title: "Surviving 2020 with the help of our wonderful Harputicus ",
+    description:
+      "2020 was challenging, but it gave us precious time to bond with our beautiful baby Harper! 🎉",
+    icon: Heart,
+    images: getByYear(2020)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "2021",
+    title: "Our Little Family is Growing",
+    description:
+      "Our family is growing, and so is our love! Every day with you is a blessing. 🌟",
+    icon: Shrub,
+    images: getByYear(2021)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "2022",
+    title: "Another miracle on the way",
+    description:
+      "We welcomed our miracle baby Hazel! Our hearts are overflowing with love and gratitude. 👶",
+    icon: Baby,
+    images: getByYear(2022)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
+  },
+  {
+    date: "2023",
+    title: "A year of new beginnings",
+    description:
+      "Life became more stable and we created so many fun memories together! 💖",
     icon: Camera,
-    images: [
-      `https://picsum.photos/seed/mission21/800/600`,
-      `https://picsum.photos/seed/mission22/800/600`,
-      `https://picsum.photos/seed/mission23/800/600`,
-      `https://picsum.photos/seed/mission24/800/600`,
-      `https://picsum.photos/seed/mission25/800/600`,
-    ],
+    images: getByYear(2023)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "January 2017",
-    title: "Coffee Shop Dreams",
+    date: "2024",
+    title: "Another year of love and laughter",
     description:
-      "When we found our favorite coffee shop and dreamed of opening our own someday! ☕",
-    icon: Coffee,
-    images: [
-      `https://picsum.photos/seed/mission23/800/600`,
-      `https://picsum.photos/seed/mission24/800/600`,
-      `https://picsum.photos/seed/mission25/800/600`,
-      `https://picsum.photos/seed/mission26/800/600`,
-      `https://picsum.photos/seed/mission27/800/600`,
-    ],
+      "Every day with you is a blessing. I love you more than words can say. 💕",
+    icon: Heart,
+    images: getByYear(2024)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "January 2018",
-    title: "Coffee Shop Dreams",
+    date: "Present day",
+    title: "Our Beautiful Complete Family",
     description:
-      "When we found our favorite coffee shop and dreamed of opening our own someday! ☕",
-    icon: Coffee,
-    images: [
-      `https://picsum.photos/seed/mission23/800/600`,
-      `https://picsum.photos/seed/mission24/800/600`,
-      `https://picsum.photos/seed/mission25/800/600`,
-      `https://picsum.photos/seed/mission26/800/600`,
-      `https://picsum.photos/seed/mission27/800/600`,
-    ],
+      "Our family is complete with our three beautiful children. Every day is filled with love, laughter, and new adventures! 💕",
+    icon: HandHeart,
+    images: getByYear(2024)
+      .map((image) => image.url)
+      .sort(() => 0.5 - Math.random()),
   },
 ];
 
