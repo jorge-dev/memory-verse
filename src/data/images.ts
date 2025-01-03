@@ -2325,6 +2325,9 @@ export const images: ImageData[] = [
   export function getByNames(names: string[]): ImageData[] {
     return images.filter((image) => names.includes(image.name));
   }
+  export function getByName(name: string): ImageData | undefined {
+    return images.find((image) => image.name === name);
+  }
 
 
   

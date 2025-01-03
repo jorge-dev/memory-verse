@@ -220,7 +220,6 @@ const timelineEvents: TimelineEvent[] = [
     icon: HandHeart,
     images: getByYear(2024)
       .map((image) => image.url)
-      .sort(() => 0.5 - Math.random())
       .sort(() => 0.5 - Math.random()),
   },
 ];
