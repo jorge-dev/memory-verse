@@ -11,15 +11,6 @@ import Lenis from "lenis";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { LoveCounters } from "@/components/sections/LoveCounters";
 
-const loveLetter = {
-  content: `Hey Love! ❤️\n\nYou know what I was thinking about today? That mission trip that changed everything. I still remember seeing you on that bus with your friend, having no idea that God was about to write the most amazing story.\n\nThat second week when we finally started talking... who knew serving together would lead to this incredible journey? From mission teammates to soulmates, every step has been a blessing.\n\nRemember when our friendship turned into something more? And then there we were, saying our vows on that mountain top (literally the high point of my life 😉).\n\nEvery day since has been an adventure, and I wouldn't want anyone else by my side. From more mission work to morning coffee, from mountain peaks to movie nights, you make everything better.\n\nCan't wait for all the adventures still ahead of us!`,
-  signature: "Forever Yours,\nJorge",
-  date: new Date().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-  }),
-};
-
 const footerData = {
   message:
     "To my beloved Rebekah, who makes every day of my life more beautiful than I could have ever imagined.",
@@ -64,7 +55,7 @@ export default function Home() {
       {/* </AnimatedSection> */}
 
       <AnimatedSection delay={0.2}>
-        <LoveLetter {...loveLetter} />
+        <LoveLetter />
       </AnimatedSection>
 
       <AnimatedSection delay={0.3}>
