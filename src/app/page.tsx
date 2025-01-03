@@ -6,13 +6,15 @@ import { LoveReasons } from "@/components/sections/LoveReasons";
 import { LoveLetter } from "@/components/sections/LoveLetter";
 import { MemoryLane } from "@/components/sections/MemoryLane";
 import { Footer } from "@/components/sections/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { LoveCounters } from "@/components/sections/LoveCounters";
 
 export default function Home() {
+  const [isClient, setIsClient] = useState(false);
   useEffect(() => {
+    setIsClient(true);
     const lenis = new Lenis();
 
     function raf(time: number) {
@@ -28,33 +30,36 @@ export default function Home() {
       <div className="fixed top-4 right-4 z-50">
         <ModeToggle />
       </div>
+      {isClient && (
+        <>
+          <HeroSection
+            title="A Journey of Love"
+            subtitle="Our Story Through the Years"
+          />
+          <AnimatedSection delay={0.3}>
+            <LoveCounters />
+          </AnimatedSection>
+          <AnimatedSection delay={0.3}>
+            <Timeline />
+          </AnimatedSection>
 
-      <HeroSection
-        title="A Journey of Love"
-        subtitle="Our Story Through the Years"
-      />
-      <AnimatedSection delay={0.3}>
-        <LoveCounters />
-      </AnimatedSection>
-      <AnimatedSection delay={0.3}>
-        <Timeline />
-      </AnimatedSection>
+          {/* <AnimatedSection delay={0.3}> */}
+          <MemoryLane />
+          {/* </AnimatedSection> */}
 
-      {/* <AnimatedSection delay={0.3}> */}
-      <MemoryLane />
-      {/* </AnimatedSection> */}
+          {/* <AnimatedSection delay={0.3}> */}
+          <LoveReasons />
+          {/* </AnimatedSection> */}
 
-      {/* <AnimatedSection delay={0.3}> */}
-      <LoveReasons />
-      {/* </AnimatedSection> */}
+          {/* <AnimatedSection delay={0.2}> */}
+          <LoveLetter />
+          {/* </AnimatedSection> */}
 
-      {/* <AnimatedSection delay={0.2}> */}
-      <LoveLetter />
-      {/* </AnimatedSection> */}
-
-      <AnimatedSection delay={0.3}>
-        <Footer />
-      </AnimatedSection>
+          <AnimatedSection delay={0.3}>
+            <Footer />
+          </AnimatedSection>
+        </>
+      )}
     </main>
   );
 }
