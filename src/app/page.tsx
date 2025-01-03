@@ -11,42 +11,6 @@ import Lenis from "lenis";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { LoveCounters } from "@/components/sections/LoveCounters";
 
-// Remove timelineEvents array
-
-const loveReasons = [
-  {
-    title: "Your Mission Spirit",
-    description:
-      "The way you care for others and spread joy, just like during that first mission trip.",
-  },
-  {
-    title: "Your Bravery",
-    description:
-      "Taking that first step to tell me how you felt (thank goodness you did!).",
-  },
-  {
-    title: "Your Sense of Adventure",
-    description:
-      "From mission trips to mountain weddings, you're always up for anything!",
-  },
-  {
-    title: "Your Support",
-    description: "Being my rock through every challenge and celebration.",
-  },
-  {
-    title: "Your Laughter",
-    description: "The sound that makes even the darkest days brighter.",
-  },
-  {
-    title: "Your Passion",
-    description: "The dedication you show in everything you do.",
-  },
-  {
-    title: "Your Love",
-    description: "The unconditional love you give that makes life beautiful.",
-  },
-];
-
 const loveLetter = {
   content: `Hey Love! ❤️\n\nYou know what I was thinking about today? That mission trip that changed everything. I still remember seeing you on that bus with your friend, having no idea that God was about to write the most amazing story.\n\nThat second week when we finally started talking... who knew serving together would lead to this incredible journey? From mission teammates to soulmates, every step has been a blessing.\n\nRemember when our friendship turned into something more? And then there we were, saying our vows on that mountain top (literally the high point of my life 😉).\n\nEvery day since has been an adventure, and I wouldn't want anyone else by my side. From more mission work to morning coffee, from mountain peaks to movie nights, you make everything better.\n\nCan't wait for all the adventures still ahead of us!`,
   signature: "Forever Yours,\nJorge",
@@ -96,7 +60,7 @@ export default function Home() {
       {/* </AnimatedSection> */}
 
       {/* <AnimatedSection delay={0.3}> */}
-      <LoveReasons reasons={loveReasons} />
+      <LoveReasons />
       {/* </AnimatedSection> */}
 
       <AnimatedSection delay={0.2}>

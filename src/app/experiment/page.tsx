@@ -5,8 +5,9 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { ModeToggle } from "@/components/DarkModeToggle";
 // import { Clock } from "@/components/Clock";
-import { Timeline } from "@/components/sections/Timeline";
-import { MemoryLane } from "@/components/sections/MemoryLane";
+// import { Timeline } from "@/components/sections/Timeline";
+// import { MemoryLane } from "@/components/sections/MemoryLane";
+import { LoveReasons } from "@/components/sections/LoveReasons";
 
 interface ExperimentalFeature {
   title: string;
@@ -44,15 +45,20 @@ export default function ExperimentPage() {
     //     />
     //   ),
     // },
+    // {
+    //   title: "Timeline",
+    //   description: "A vertical timeline of important events",
+    //   component: <Timeline />,
+    // },
+    // {
+    //   title: "Memory Lane",
+    //   description: "A slideshow of memories",
+    //   component: <MemoryLane />,
+    // },
     {
-      title: "Timeline",
-      description: "A vertical timeline of important events",
-      component: <Timeline />,
-    },
-    {
-      title: "Memory Lane",
-      description: "A slideshow of memories",
-      component: <MemoryLane />,
+      title: "Love Reasons",
+      description: "A list of reasons why I love you",
+      component: <LoveReasons />,
     },
   ];
 
