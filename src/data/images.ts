@@ -1,4 +1,4 @@
-interface ImageData {
+export interface ImageData {
   name: string;
   key: string;
   url: string;
@@ -525,8 +525,8 @@ export const images: ImageData[] = [
   },
   {
     "name": "2024 - 14 of 23.jpeg",
-    "key": "IcwJR6uyNd2f6yAa42EBeOzUPS5ktqnQ6sjBm2FaZr7oVyxJ",
-    "url": "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2f6yAa42EBeOzUPS5ktqnQ6sjBm2FaZr7oVyxJ",
+    "key": "IcwJR6uyNd2fqgPRhJG8B3iGyxWe8XgMrhRSdY27soJ5bZDv",
+    "url": "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2fqgPRhJG8B3iGyxWe8XgMrhRSdY27soJ5bZDv",
     "year": 2024
   },
   {
