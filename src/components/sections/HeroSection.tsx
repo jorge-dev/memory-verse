@@ -18,7 +18,7 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
   const image6 = "https://picsum.photos/seed/hero6/3840/2160.webp";
   const image7 = "https://picsum.photos/seed/hero7/3840/2160.webp";
   const image8 =
-    "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2flY1BVNqed1GRPAKQJYmM7kyXqcwaE4ih3nIg";
+    "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2fSDUoH4iwO3kZr4Jo2pycNRj0ulCLGmngxAbT";
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -99,7 +99,15 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
                     : "w-[30vw] h-[30vh]" // main image
                 }`}
               >
-                <Image src={src} fill alt="image" className="object-cover" />
+                <Image
+                  priority={true}
+                  placeholder="empty"
+                  src={src}
+                  fill
+                  alt="image"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
               </div>
             </motion.div>
           );
