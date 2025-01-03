@@ -11,38 +11,7 @@ import Lenis from "lenis";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { LoveCounters } from "@/components/sections/LoveCounters";
 
-const timelineEvents = [
-  {
-    date: "August 2011",
-    title: "First Week of Mission Trip",
-    description:
-      "Spotted you on the bus with your friend. Little did I know that girl across the aisle would change my life forever! 😊",
-  },
-  {
-    date: "August 2011",
-    title: "Second Week Magic",
-    description:
-      "Finally got the courage to actually talk to you. Turned out we made an amazing mission team! 🙌",
-  },
-  {
-    date: "January 2012",
-    title: "More Than Mission Mates",
-    description:
-      "Those mission trip conversations turned into something special. Best 'yes' ever! ❤️",
-  },
-  {
-    date: "January 2015",
-    title: "Mountain-Top Magic",
-    description:
-      "Said our 'I dos' with the mountains as our backdrop. The view was amazing, but you were even more breathtaking! 🏔️",
-  },
-  {
-    date: "Present Day",
-    title: "Still Going Strong",
-    description:
-      "From mission fields to married life, every day's an adventure with you! 💕",
-  },
-];
+// Remove timelineEvents array
 
 const loveReasons = [
   {
@@ -146,7 +115,7 @@ export default function Home() {
         <LoveCounters />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
-        <Timeline events={timelineEvents} />
+        <Timeline />
       </AnimatedSection>
 
       <AnimatedSection delay={0.3}>
