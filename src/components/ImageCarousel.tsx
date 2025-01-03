@@ -24,16 +24,19 @@ export function ImageCarousel({
   const [slideDirection, setSlideDirection] = React.useState<"left" | "right">(
     "right"
   );
+  const [previousIndex, setPreviousIndex] = React.useState(0);
 
   const showNext = React.useCallback(() => {
+    setPreviousIndex(currentIndex);
     setSlideDirection("right");
     setCurrentIndex((prev) => (prev + 1) % images.length);
-  }, [images.length]);
+  }, [images.length, currentIndex]);
 
   const showPrevious = React.useCallback(() => {
+    setPreviousIndex(currentIndex);
     setSlideDirection("left");
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  }, [images.length]);
+  }, [images.length, currentIndex]);
 
   // Handle keyboard navigation
   React.useEffect(() => {
@@ -78,13 +81,13 @@ export function ImageCarousel({
                   "transition-all duration-700 ease-in-out",
                   index === currentIndex
                     ? "opacity-100 translate-x-0 scale-100"
-                    : slideDirection === "left"
-                    ? index < currentIndex
-                      ? "opacity-0 translate-x-full scale-95"
-                      : "opacity-0 -translate-x-full scale-95"
-                    : index < currentIndex
-                    ? "opacity-0 -translate-x-full scale-95"
-                    : "opacity-0 translate-x-full scale-95"
+                    : index === previousIndex
+                    ? `opacity-0 ${
+                        slideDirection === "left"
+                          ? "translate-x-full"
+                          : "-translate-x-full"
+                      } scale-95`
+                    : "opacity-0 scale-95"
                 )}
               >
                 <div className="relative w-full h-full p-16">
