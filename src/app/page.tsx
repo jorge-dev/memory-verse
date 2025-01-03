@@ -47,33 +47,6 @@ const loveReasons = [
   },
 ];
 
-const memories = [
-  {
-    id: 1,
-    image: "https://picsum.photos/seed/memory1/800/600",
-    date: "August 2011",
-    title: "The Mission Trip Beginning",
-    description:
-      "That first glimpse of you on the bus. Who knew God had such amazing plans in store? 🙏",
-  },
-  {
-    id: 2,
-    image: "https://picsum.photos/seed/memory2/800/600",
-    date: "January 2012",
-    title: "When Everything Changed",
-    description:
-      "From mission partners to life partners - best upgrade ever! 🎉",
-  },
-  {
-    id: 3,
-    image: "https://picsum.photos/seed/memory3/800/600",
-    date: "January 2015",
-    title: "Mountain-Top Promises",
-    description:
-      "Our wedding day in the mountains - pretty sure we were literally on cloud nine! ⛰️",
-  },
-];
-
 const loveLetter = {
   content: `Hey Love! ❤️\n\nYou know what I was thinking about today? That mission trip that changed everything. I still remember seeing you on that bus with your friend, having no idea that God was about to write the most amazing story.\n\nThat second week when we finally started talking... who knew serving together would lead to this incredible journey? From mission teammates to soulmates, every step has been a blessing.\n\nRemember when our friendship turned into something more? And then there we were, saying our vows on that mountain top (literally the high point of my life 😉).\n\nEvery day since has been an adventure, and I wouldn't want anyone else by my side. From more mission work to morning coffee, from mountain peaks to movie nights, you make everything better.\n\nCan't wait for all the adventures still ahead of us!`,
   signature: "Forever Yours,\nJorge",
@@ -111,20 +84,20 @@ export default function Home() {
         title="A Journey of Love"
         subtitle="Our Story Through the Years"
       />
-      <AnimatedSection delay={0.6}>
+      <AnimatedSection delay={0.3}>
         <LoveCounters />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
         <Timeline />
       </AnimatedSection>
 
-      <AnimatedSection delay={0.3}>
-        <MemoryLane memories={memories} />
-      </AnimatedSection>
+      {/* <AnimatedSection delay={0.3}> */}
+      <MemoryLane />
+      {/* </AnimatedSection> */}
 
-      <AnimatedSection delay={0.3}>
-        <LoveReasons reasons={loveReasons} />
-      </AnimatedSection>
+      {/* <AnimatedSection delay={0.3}> */}
+      <LoveReasons reasons={loveReasons} />
+      {/* </AnimatedSection> */}
 
       <AnimatedSection delay={0.2}>
         <LoveLetter {...loveLetter} />

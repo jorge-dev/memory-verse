@@ -6,6 +6,7 @@ import Lenis from "lenis";
 import { ModeToggle } from "@/components/DarkModeToggle";
 // import { Clock } from "@/components/Clock";
 import { Timeline } from "@/components/sections/Timeline";
+import { MemoryLane } from "@/components/sections/MemoryLane";
 
 interface ExperimentalFeature {
   title: string;
@@ -47,6 +48,11 @@ export default function ExperimentPage() {
       title: "Timeline",
       description: "A vertical timeline of important events",
       component: <Timeline />,
+    },
+    {
+      title: "Memory Lane",
+      description: "A slideshow of memories",
+      component: <MemoryLane />,
     },
   ];
 
