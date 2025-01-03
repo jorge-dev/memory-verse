@@ -1,11 +1,11 @@
 "use client";
 
-import { TimeCounter } from "@/components/sections/TimeCounter";
-import { AnimatedSection } from "@/components/AnimatedSection";
+// import { TimeCounter } from "@/components/sections/TimeCounter";
 import { useEffect } from "react";
 import Lenis from "lenis";
 import { ModeToggle } from "@/components/DarkModeToggle";
-import { Clock } from "@/components/Clock";
+// import { Clock } from "@/components/Clock";
+import { Timeline } from "@/components/sections/Timeline";
 
 interface ExperimentalFeature {
   title: string;
@@ -27,21 +27,26 @@ export default function ExperimentPage() {
   }, []);
 
   const experimentalFeatures: ExperimentalFeature[] = [
+    // {
+    //   title: "Flip Clock Animation",
+    //   description: "A smooth flipping animation for time display",
+    //   component: <Clock />,
+    // },
+    // {
+    //   title: "Time Counter",
+    //   description: "Tracks time since a specific date",
+    //   component: (
+    //     <TimeCounter
+    //       startDate={new Date("2015-01-03T00:00:00Z")}
+    //       title="Time Since Launch"
+    //       description="Tracking our journey from the beginning"
+    //     />
+    //   ),
+    // },
     {
-      title: "Flip Clock Animation",
-      description: "A smooth flipping animation for time display",
-      component: <Clock />,
-    },
-    {
-      title: "Time Counter",
-      description: "Tracks time since a specific date",
-      component: (
-        <TimeCounter
-          startDate={new Date("2015-01-03T00:00:00Z")}
-          title="Time Since Launch"
-          description="Tracking our journey from the beginning"
-        />
-      ),
+      title: "Timeline",
+      description: "A vertical timeline of important events",
+      component: <Timeline />,
     },
   ];
 
@@ -60,18 +65,17 @@ export default function ExperimentPage() {
       </header>
 
       <section className="container mx-auto ">
-        {experimentalFeatures.map((feature, index) => (
-          <AnimatedSection key={feature.title} delay={0.2 * index}>
-            <div className="border border-border rounded-lg p-6 mb-6">
-              <h2 className="text-2xl font-semibold text-foreground mb-2">
-                {feature.title}
-              </h2>
-              <p className="text-muted-foreground mb-4">
-                {feature.description}
-              </p>
-              <div className=" rounded-md p-4">{feature.component}</div>
-            </div>
-          </AnimatedSection>
+        {experimentalFeatures.map((feature) => (
+          <div
+            key={feature.title}
+            className="border border-border rounded-lg p-6 mb-6"
+          >
+            <h2 className="text-2xl font-semibold text-foreground mb-2">
+              {feature.title}
+            </h2>
+            <p className="text-muted-foreground mb-4">{feature.description}</p>
+            <div className=" rounded-md p-4">{feature.component}</div>
+          </div>
         ))}
       </section>
     </main>
