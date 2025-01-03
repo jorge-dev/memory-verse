@@ -21,15 +21,20 @@ interface ImageStackProps {
 export function ImageStack({ images, title, maxDisplay = 5 }: ImageStackProps) {
   const [open, setOpen] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [slideDirection, setSlideDirection] = React.useState<"left" | "right">(
+    "right"
+  );
 
   const displayImages = images.slice(0, maxDisplay);
   const remainingCount = Math.max(0, images.length - maxDisplay);
 
   const showNext = React.useCallback(() => {
+    setSlideDirection("right");
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
 
   const showPrevious = React.useCallback(() => {
+    setSlideDirection("left");
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
 
@@ -136,12 +141,17 @@ export function ImageStack({ images, title, maxDisplay = 5 }: ImageStackProps) {
                 <div
                   key={src}
                   className={cn(
-                    "absolute inset-0 w-full h-full transition-all duration-300 transform",
+                    "absolute inset-0 w-full h-full transform",
+                    "transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]",
                     index === currentIndex
-                      ? "opacity-100 translate-x-0"
+                      ? "opacity-100 translate-x-0 scale-100"
+                      : slideDirection === "left"
+                      ? index < currentIndex
+                        ? "opacity-0 translate-x-full scale-95"
+                        : "opacity-0 -translate-x-full scale-95"
                       : index < currentIndex
-                      ? "opacity-0 -translate-x-full"
-                      : "opacity-0 translate-x-full"
+                      ? "opacity-0 -translate-x-full scale-95"
+                      : "opacity-0 translate-x-full scale-95"
                   )}
                 >
                   <div className="relative w-full h-full p-16">

@@ -189,6 +189,20 @@ const timelineEvents: TimelineEvent[] = [
       `https://picsum.photos/seed/mission27/800/600`,
     ],
   },
+  {
+    date: "January 2018",
+    title: "Coffee Shop Dreams",
+    description:
+      "When we found our favorite coffee shop and dreamed of opening our own someday! ☕",
+    icon: Coffee,
+    images: [
+      `https://picsum.photos/seed/mission23/800/600`,
+      `https://picsum.photos/seed/mission24/800/600`,
+      `https://picsum.photos/seed/mission25/800/600`,
+      `https://picsum.photos/seed/mission26/800/600`,
+      `https://picsum.photos/seed/mission27/800/600`,
+    ],
+  },
 ];
 
 export function Timeline() {
