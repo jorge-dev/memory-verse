@@ -142,7 +142,7 @@ export function ImageStack({ images, title, maxDisplay = 5 }: ImageStackProps) {
                   key={src}
                   className={cn(
                     "absolute inset-0 w-full h-full transform",
-                    "transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]",
+                    "transition-all duration-700 ease-in-out",
                     index === currentIndex
                       ? "opacity-100 translate-x-0 scale-100"
                       : slideDirection === "left"
