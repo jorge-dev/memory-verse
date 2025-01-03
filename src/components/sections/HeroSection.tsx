@@ -2,23 +2,36 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Image from "next/image";
+import { Pacifico, Playwrite_IS } from "next/font/google";
+import { getByNames } from "../../data/images";
 
-interface HeroSectionProps {
-  title?: string;
-  subtitle?: string;
-  backgroundImage?: string;
-}
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  weight: "400",
+});
 
-export function HeroSection({ title, subtitle }: HeroSectionProps) {
-  const image1 = "https://picsum.photos/seed/hero1/3840/2160.webp";
-  const image2 = "https://picsum.photos/seed/hero2/3840/2160.webp";
-  const image3 = "https://picsum.photos/seed/hero3/3840/2160.webp";
-  const image4 = "https://picsum.photos/seed/hero4/3840/2160.webp";
-  const image5 = "https://picsum.photos/seed/hero5/3840/2160.webp";
-  const image6 = "https://picsum.photos/seed/hero6/3840/2160.webp";
-  const image7 = "https://picsum.photos/seed/hero7/3840/2160.webp";
-  const image8 =
-    "https://utfs.io/a/gqr91h87ll/IcwJR6uyNd2fSDUoH4iwO3kZr4Jo2pycNRj0ulCLGmngxAbT";
+const playwriteIs = Playwrite_IS({
+  variable: "--font-playwrite-is",
+  weight: ["400", "200"],
+});
+
+export function HeroSection() {
+  const uploadThingBase = "https://utfs.io/a/gqr91h87ll/";
+  const imageNames = [
+    "2014 - 13 of 24.jpeg", // main
+    "2015 - 8 of 84.jpeg", //top center
+    "2014 - 19 of 24.jpeg", // left top
+    "2014 - 11 of 24.jpeg", // right top
+    "2015 - 18 of 84.jpeg", // bottom center
+    "2015 - 12 of 84.jpeg", // left bottom
+    "2016 - 6 of 29.jpeg", // right bottom
+    "2015 - 23 of 84.jpeg", // main
+  ];
+  const images = getByNames(imageNames);
+
+  const title = "To My Beloved Wife";
+  const subtitle =
+    "A decade of love, laughter, and countless beautiful moments. Every day I fall more in love with you. This is our story...";
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -37,35 +50,35 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
 
   const pictures = [
     {
-      src: image1,
+      src: uploadThingBase + images[7].key,
       scale: scale4,
     },
     {
-      src: image2,
+      src: uploadThingBase + images[6].key,
       scale: scale5,
     },
     {
-      src: image3,
+      src: uploadThingBase + images[5].key,
       scale: scale6,
     },
     {
-      src: image4,
+      src: uploadThingBase + images[4].key,
       scale: scale5,
     },
     {
-      src: image5,
+      src: uploadThingBase + images[3].key,
       scale: scale6,
     },
     {
-      src: image6,
+      src: uploadThingBase + images[2].key,
       scale: scale8,
     },
     {
-      src: image7,
+      src: uploadThingBase + images[1].key,
       scale: scale9,
     },
     {
-      src: image8,
+      src: uploadThingBase + images[0].key,
       scale: scaleLastImage,
     },
   ];
@@ -81,7 +94,7 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
               className="w-full h-full absolute top-0 flex items-center justify-center"
             >
               <div
-                className={`relative ${
+                className={`relative object-cover  ${
                   index === 0
                     ? "w-full h-full"
                     : index === 1
@@ -116,9 +129,17 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
           className="absolute inset-0 flex items-center justify-center"
           style={{ opacity }}
         >
-          <div className="text-center text-white px-4">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">{title}</h1>
-            <p className="text-xl md:text-2xl opacity-90">{subtitle}</p>
+          <div className="text-center text-white px-4 max-w-3xl mx-auto bg-gray-900 bg-opacity-50 py-4 rounded-2xl">
+            <h1
+              className={`${pacifico.className} text-6xl md:text-6xl mb-6 leading-tight`}
+            >
+              {title}
+            </h1>
+            <p
+              className={`${playwriteIs.className} text-lg md:text-2xl opacity-90 leading-relaxed`}
+            >
+              {subtitle}
+            </p>
           </div>
         </motion.div>
       </div>

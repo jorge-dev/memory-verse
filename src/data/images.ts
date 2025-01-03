@@ -2322,6 +2322,9 @@ export const images: ImageData[] = [
   export function getByYear(year: number): ImageData[] {
     return images.filter((image) => image.year === year);
   }
+  export function getByNames(names: string[]): ImageData[] {
+    return images.filter((image) => names.includes(image.name));
+  }
 
 
   

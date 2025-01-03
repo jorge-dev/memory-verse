@@ -28,10 +28,8 @@ export default function Home() {
     <main className="relative bg-background dark:bg-background-dark text-foreground dark:text-foreground">
       {isClient && (
         <>
-          <HeroSection
-            title="A Journey of Love"
-            subtitle="Our Story Through the Years"
-          />
+          <HeroSection />
+
           <AnimatedSection delay={0.3}>
             <LoveCounters />
           </AnimatedSection>
