@@ -85,18 +85,18 @@ export function HeroSection({ title, subtitle }: HeroSectionProps) {
                   index === 0
                     ? "w-full h-full"
                     : index === 1
-                    ? "w-[35vw] h-[30vh] -top-[30vh] left-[5vw]"
+                    ? "w-[35vw] h-[30vh] -top-[33vh] left-[0vw]" // top center
                     : index === 2
-                    ? "w-[20vw] h-[45vh] -top-[10vh] -left-[25vw]"
+                    ? "w-[30vw] h-[45vh] -top-[20vh] -left-[34vw]" // left first
                     : index === 3
-                    ? "w-[25vw] h-[25vh] left-[27.5vw]"
+                    ? "w-[30vw] h-[45vh] -top-[20vh] left-[34vw]" // right first
                     : index === 4
-                    ? "w-[20vw] h-[25vh] top-[27.5vh] left-[5vw]"
+                    ? "w-[25vw] h-[25vh] top-[32.5vh] left-[0vw]" // bottom center
                     : index === 5
-                    ? "w-[30vw] h-[25vh] top-[27.5vh] -left-[22.5vw]"
+                    ? "w-[33vw] h-[30vh] top-[20.5vh] -left-[32.5vw]" // left second
                     : index === 6
-                    ? "w-[25vw] h-[25vh] top-[27.5vh] left-[29.5vw]"
-                    : "w-[25vw] h-[25vh]"
+                    ? "w-[33vw] h-[30vh] top-[20.5vh] left-[32.5vw]" // right second
+                    : "w-[30vw] h-[30vh]" // main image
                 }`}
               >
                 <Image src={src} fill alt="image" className="object-cover" />
