@@ -5,12 +5,14 @@ import { useState } from "react";
 import type { ImageData } from "@/data/images";
 import { ImageCarousel } from "./ImageCarousel";
 import React from "react";
+import { YearDivider } from "./YearDivider";
 
 interface MemoryGridProps {
   memories: ImageData[];
+  selectedYear: number | null;
 }
 
-export function MemoryGallery({ memories }: MemoryGridProps) {
+export function MemoryGallery({ memories, selectedYear }: MemoryGridProps) {
   const imageUrls = React.useMemo(
     () => memories.map((item) => item.url),
     [memories]
@@ -18,18 +20,51 @@ export function MemoryGallery({ memories }: MemoryGridProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
+  const groupedMemories = React.useMemo(() => {
+    const filtered = selectedYear
+      ? memories.filter((memory) => memory.year === selectedYear)
+      : memories;
+
+    return filtered.reduce((groups, memory) => {
+      const year = memory.year;
+      if (!groups[year]) {
+        groups[year] = [];
+      }
+      groups[year].push(memory);
+      return groups;
+    }, {} as Record<number, ImageData[]>);
+  }, [memories, selectedYear]);
+
+  // Sort years in descending order
+  const sortedYears = React.useMemo(
+    () =>
+      Object.keys(groupedMemories)
+        .map(Number)
+        .sort((a, b) => b - a),
+    [groupedMemories]
+  );
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 cursor-pointer">
-      {memories.map((memory, index) => (
-        <div
-          onClick={() => {
-            setSelectedIndex(index);
-            setIsOpen(true);
-          }}
-          key={memory.key}
-        >
-          <MemoryItem memory={memory} />
-        </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {sortedYears.map((year) => (
+        <React.Fragment key={year}>
+          <YearDivider year={year} />
+          {groupedMemories[year].map((memory) => (
+            <div
+              onClick={() => {
+                // Calculate the absolute index in the filtered array
+                const absoluteIndex = memories.findIndex(
+                  (m) => m.key === memory.key
+                );
+                setSelectedIndex(absoluteIndex);
+                setIsOpen(true);
+              }}
+              key={memory.key}
+            >
+              <MemoryItem memory={memory} />
+            </div>
+          ))}
+        </React.Fragment>
       ))}
       <ImageCarousel
         images={imageUrls}
