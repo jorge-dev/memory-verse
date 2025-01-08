@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Check, ChevronDown } from "lucide-react";
+import { Check, ChevronDown, Filter } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,9 +23,15 @@ export function YearFilter({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="w-[180px] justify-between">
-          {selectedYear ? `Year: ${selectedYear}` : "Filter by Year"}
-          <ChevronDown className="ml-2 h-4 w-4" />
+        <Button
+          variant="outline"
+          className="w-auto sm:w-[180px] justify-between"
+        >
+          <Filter className="h-4 w-4 sm:inline-block" />
+          <span className="hidden sm:inline ml-2">
+            {selectedYear ? `Year: ${selectedYear}` : "Filter by Year"}
+          </span>
+          <ChevronDown className="hidden sm:inline-block ml-2 h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-[180px]">
