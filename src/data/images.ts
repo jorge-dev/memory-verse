@@ -2,7 +2,7 @@ export interface ImageData {
   name: string;
   key: string;
   url: string;
-  year?: number;
+  year: number;
 
 }
 
