@@ -5,14 +5,44 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { MemoryGallery } from "@/components/MemoryGallery";
 import { YearFilter } from "@/components/YearFilter";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback, useLayoutEffect } from "react";
+
+// Header height in pixels (adjust this value based on your actual header height)
+const HEADER_HEIGHT = 70; // This should match your header's actual height
 
 export default function GalleryPage() {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
   const years = useMemo(() => {
     const uniqueYears = new Set(images.map((image) => image.year));
-    return Array.from(uniqueYears).sort((a, b) => b - a);
+    return Array.from(uniqueYears).sort((a, b) => a - b);
+  }, []);
+
+  const scrollToYear = useCallback((year: number) => {
+    const element = document.getElementById(`year-${year}`);
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - HEADER_HEIGHT;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  }, []);
+
+  // Always scroll when selectedYear changes
+  useLayoutEffect(() => {
+    if (selectedYear !== null) {
+      scrollToYear(selectedYear);
+    } else if (years.length > 0) {
+      scrollToYear(years[0]);
+    }
+  }, [selectedYear, years, scrollToYear]);
+
+  const handleYearSelect = useCallback((year: number | null) => {
+    setSelectedYear(year);
   }, []);
 
   return (
@@ -29,7 +59,7 @@ export default function GalleryPage() {
           <YearFilter
             years={years}
             selectedYear={selectedYear}
-            onYearSelectAction={setSelectedYear}
+            onYearSelectAction={handleYearSelect}
           />
         </div>
       </header>

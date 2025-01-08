@@ -35,12 +35,12 @@ export function MemoryGallery({ memories, selectedYear }: MemoryGridProps) {
     }, {} as Record<number, ImageData[]>);
   }, [memories, selectedYear]);
 
-  // Sort years in descending order
+  // Sort years in ascending order
   const sortedYears = React.useMemo(
     () =>
       Object.keys(groupedMemories)
         .map(Number)
-        .sort((a, b) => b - a),
+        .sort((a, b) => a - b), // Changed sorting order here
     [groupedMemories]
   );
 
