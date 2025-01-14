@@ -7,13 +7,17 @@ import {
   type MotionValue,
 } from "framer-motion";
 import { useRef } from "react";
+import { useTheme } from "next-themes";
 
 interface CardProps {
   i: number;
   title: string;
   description: string;
   image: string;
-  color: string;
+  color: {
+    light: string;
+    dark: string;
+  };
   progress: MotionValue<number>;
   range: number[];
   targetScale: number;
@@ -35,6 +39,9 @@ const CardMemories = ({
     offset: ["start end", "start start"],
   });
 
+  const { theme } = useTheme();
+  const bgColor = theme === "dark" ? color.dark : color.light;
+
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
 
@@ -45,16 +52,16 @@ const CardMemories = ({
     >
       <motion.div
         style={{
-          backgroundColor: color,
+          backgroundColor: bgColor,
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className="flex flex-col relative -top-1/4 h-[500px] w-[1000px] rounded-[25px] p-[50px] origin-top backdrop-blur-sm dark:bg-opacity-30 dark:backdrop-blur-md shadow-lg"
+        className="flex flex-col relative -top-1/4 h-[500px] w-[1000px] rounded-[25px] p-[50px] origin-top backdrop-blur-sm dark:bg-opacity-30 dark:backdrop-blur-md shadow-lg text-black"
       >
-        <h2 className="text-center m-0 text-[28px]">{title}</h2>
+        <h2 className="text-center m-0 text-[28px] text-black">{title}</h2>
         <div className="flex h-full mt-[50px] gap-[50px]">
           <div className="w-[40%] relative top-[10%]">
-            <p className="text-base first-letter:text-[28px] first-letter:font-['Title']">
+            <p className="text-base first-letter:text-[28px] first-letter:font-['Title'] text-black">
               {description}
             </p>
           </div>

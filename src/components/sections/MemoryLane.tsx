@@ -11,7 +11,10 @@ interface Memory {
   date: string;
   title: string;
   description: string;
-  color: string;
+  color: {
+    light: string;
+    dark: string;
+  };
 }
 
 export const memories: Memory[] = [
@@ -21,7 +24,10 @@ export const memories: Memory[] = [
     date: "Spring 2011",
     title: "First Glance",
     description: "That magical moment when our eyes met across the café.",
-    color: "rgba(255, 218, 224, 0.8)", // Soft pink
+    color: {
+      light: "rgba(255, 218, 224, 0.8)", // Soft pink
+      dark: "rgba(255, 168, 174, 0.35)", // Lighter pink
+    },
   },
   {
     id: 2,
@@ -30,7 +36,10 @@ export const memories: Memory[] = [
     title: "The Perfect Proposal",
     description:
       "Under a sky full of stars, you made me the happiest person alive.",
-    color: "rgba(204, 229, 255, 0.8)", // Soft blue
+    color: {
+      light: "rgba(204, 229, 255, 0.8)", // Soft blue
+      dark: "rgba(154, 179, 255, 0.35)", // Lighter blue
+    },
   },
   {
     id: 3,
@@ -38,7 +47,10 @@ export const memories: Memory[] = [
     image: "https://images.unsplash.com/photo-1576694700950-47ff95f5ec81",
     title: "Our Wedding Day",
     description: "Surrounded by loved ones, we promised forever to each other.",
-    color: "rgba(215, 236, 208, 0.8)", // Soft green
+    color: {
+      light: "rgba(215, 236, 208, 0.8)", // Soft green
+      dark: "rgba(185, 206, 178, 0.35)", // Lighter green
+    },
   },
   {
     id: 4,
@@ -46,7 +58,10 @@ export const memories: Memory[] = [
     date: "2018",
     title: "Growing Family",
     description: "The day our little miracle made us a family of three.",
-    color: "rgba(255, 248, 204, 0.8)", // Soft yellow
+    color: {
+      light: "rgba(255, 248, 204, 0.8)", // Soft yellow
+      dark: "rgba(255, 228, 154, 0.35)", // Lighter yellow
+    },
   },
   {
     id: 5,
@@ -54,7 +69,10 @@ export const memories: Memory[] = [
     date: "Present Day",
     title: "Our Beautiful Life",
     description: "Every day with you is another page in our love story. ❤️",
-    color: "rgba(229, 204, 255, 0.8)", // Soft purple
+    color: {
+      light: "rgba(229, 204, 255, 0.8)", // Soft purple
+      dark: "rgba(199, 154, 255, 0.35)", // Lighter purple
+    },
   },
 ];
 

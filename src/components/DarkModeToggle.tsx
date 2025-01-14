@@ -2,6 +2,7 @@
 
 import { Moon, Sun, Monitor } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,6 +14,16 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Prevent hydration mismatch by not rendering anything until mounted
+  if (!mounted) {
+    return null;
+  }
 
   const icons = {
     light: Sun,
