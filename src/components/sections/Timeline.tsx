@@ -8,20 +8,17 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { useTheme } from "next-themes";
 import {
-  Bus,
   Heart,
   MessagesSquare,
   Mountain,
   Smile,
   Camera,
   Palmtree,
-  MapPin,
   Plus,
   HeartHandshake,
   GemIcon,
   type LucideIcon,
   Baby,
-  Shrub,
   HandHeart,
 } from "lucide-react";
 import { ImageStack } from "@/components/ImageStack";
@@ -48,29 +45,29 @@ const memorableMoments = Array.from(
 const timelineEvents: TimelineEvent[] = [
   {
     date: "Spring 2011",
-    title: "Coffee Shop Serendipity",
+    title: "That Perfect Spring Afternoon",
     description:
-      "A chance encounter at a local coffee shop - who knew spilling coffee could lead to love? ☕",
-    icon: Bus,
+      "Our eyes first met across the café. The sunlight caught your smile, and my heart skipped a beat. ☕",
+    icon: Heart,
     images: getByYear(2011)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
     date: "Summer 2012",
-    title: "Tech Conference Connection",
+    title: "Dancing Under the Stars",
     description:
-      "Both presenting at the same conference - our shared passion for coding sparked something special! 💻",
+      "Our first date was magical - we danced under the stars and felt like the only two people in the world! ✨",
     icon: Heart,
     images: getByYear(2012)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "Fall 2013",
-    title: "Startup Adventures Begin",
+    date: "2013-2014",
+    title: "Growing Love",
     description:
-      "Launched our first startup together - combining love and entrepreneurship! 🚀",
+      "Each day brought us closer, making ordinary moments feel extraordinary. 💕",
     icon: MessagesSquare,
     images: getByYear(2013)
       .map((image) => image.url)
@@ -80,7 +77,7 @@ const timelineEvents: TimelineEvent[] = [
     date: "Winter 2014",
     title: "The Perfect Proposal",
     description:
-      "A surprise proposal during our hackathon victory celebration! 💍",
+      "Under a sky full of stars, you made me the happiest person alive! 💍",
     icon: GemIcon,
     images: getByYear(2014)
       .map((image) => image.url)
@@ -88,9 +85,9 @@ const timelineEvents: TimelineEvent[] = [
   },
   {
     date: "Spring 2015",
-    title: "Beachside 'I Do's",
+    title: "Our Wedding By The Ocean",
     description:
-      "Our wedding by the ocean - with drones capturing every moment from above! 🌊",
+      "Standing there, promising forever to each other while the waves crashed behind us. 🌊",
     icon: Mountain,
     images: getByNames(weddingImageGallery)
       .map((image) => image.url)
@@ -98,89 +95,68 @@ const timelineEvents: TimelineEvent[] = [
   },
   {
     date: "Summer 2015",
-    title: "Silicon Valley Honeymoon",
+    title: "Honeymoon Adventures",
     description:
-      "Combining our love for tech with romance - touring startups by day, romance by night! 🌉",
+      "Starting our greatest adventure together as husband and wife! 🌅",
     icon: Palmtree,
     images: getByNames(memorableMoments)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "2016",
-    title: "Our First Year of Marriage",
+    date: "2016-2017",
+    title: "Building Our Life Together",
     description:
-      "Our first year of marriage was full of ups and downs, but we faced it all together! 💕",
+      "Every day brought new adventures and deeper love as we built our home together. 🏠",
     icon: Heart,
     images: getByYear(2016)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "2017",
-    title: "Traveling the World (or i guess just the US and Canada lol 😂)",
-    description:
-      "From road trips to flights, we traveled the world together! 🌎",
-    icon: MapPin,
-    images: getByYear(2017)
-      .map((image) => image.url)
-      .sort(() => 0.5 - Math.random()),
-  },
-  {
-    date: "2018",
-    title: "Emma's Arrival",
-    description:
-      "The day our little Emmy was born was the best day of our lives(so far)! 👶",
-    icon: Baby,
-    images: getByYear(2018)
-      .map((image) => image.url)
-      .sort(() => 0.5 - Math.random()),
-  },
-  {
     date: "2019",
-    title: "Having fun with our little but mighty family",
+    title: "Our Little Miracle",
     description:
-      "From family trips to movie nights, every moment with you and Emma is a treasure! 💖",
-    icon: Smile,
+      "The day our first little one came into our lives changed everything. A new chapter of pure joy began! 👶",
+    icon: Baby,
     images: getByYear(2019)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
     date: "2020",
-    title: "Surviving 2020 with the help of our wonderful Harputicus ",
+    title: "First Steps and Giggles",
     description:
-      "2020 was challenging, but it gave us precious time to bond with our beautiful baby Harper! 🎉",
-    icon: Heart,
+      "Watching our baby grow and discover the world brings endless joy! 🎀",
+    icon: Smile,
     images: getByYear(2020)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
     date: "2021",
-    title: "Our Little Family is Growing",
+    title: "Growing Family",
     description:
-      "Our family is growing, and so is our love! Every day with you is a blessing. 🌟",
-    icon: Shrub,
+      "Our second bundle of joy arrived, doubling our happiness and love! 🎀",
+    icon: Baby,
     images: getByYear(2021)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
     date: "2022",
-    title: "Another miracle on the way",
+    title: "Double the Fun",
     description:
-      "We welcomed our miracle baby Hazel! Our hearts are overflowing with love and gratitude. 👶",
-    icon: Baby,
+      "Two little ones, twice the adventures, and countless precious moments! 💝",
+    icon: Heart,
     images: getByYear(2022)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
     date: "2023",
-    title: "A year of new beginnings",
-    description:
-      "Life became more stable and we created so many fun memories together! 💖",
+    title: "Family Adventures",
+    description: "Making memories together, one adventure at a time! 💫",
     icon: Camera,
     images: getByYear(2023)
       .map((image) => image.url)
@@ -188,19 +164,8 @@ const timelineEvents: TimelineEvent[] = [
   },
   {
     date: "2024",
-    title: "Another year of love and laughter",
-    description:
-      "Every day with you is a blessing. I love you more than words can say. 💕",
-    icon: Heart,
-    images: getByYear(2024)
-      .map((image) => image.url)
-      .sort(() => 0.5 - Math.random()),
-  },
-  {
-    date: "Present day",
-    title: "Building Our Digital Empire",
-    description:
-      "From that first coffee spill to a successful tech company - our love story continues to innovate! 💕",
+    title: "Growing Together",
+    description: "Every day brings new joys as our family grows in love! ❤️",
     icon: HandHeart,
     images: getByYear(2024)
       .map((image) => image.url)
