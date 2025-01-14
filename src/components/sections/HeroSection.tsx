@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import Image from "next/image";
 import { Pacifico, Playwrite_IS } from "next/font/google";
-import { getByNames } from "../../data/images";
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -16,18 +15,17 @@ const playwriteIs = Playwrite_IS({
 });
 
 export function HeroSection() {
-  const uploadThingBase = "https://utfs.io/a/gqr91h87ll/";
-  const imageNames = [
-    "2014 - 13 of 24.jpeg", // main
-    "2015 - 8 of 84.jpeg", //top center
-    "2014 - 19 of 24.jpeg", // left top
-    "2014 - 11 of 24.jpeg", // right top
-    "2015 - 18 of 84.jpeg", // bottom center
-    "2015 - 12 of 84.jpeg", // left bottom
-    "2016 - 6 of 29.jpeg", // right bottom
-    "2015 - 23 of 84.jpeg", // main
-  ];
-  const images = getByNames(imageNames);
+  const imageSet = {
+    background: "https://images.unsplash.com/photo-1625667866036-8b40f7caa094",
+    topCenter: "https://images.unsplash.com/photo-1513279922550-250c2129b13a",
+    topLeft: "https://images.unsplash.com/photo-1531448143467-9d228363342d",
+    topRight: "https://images.unsplash.com/photo-1501901609772-df0848060b33",
+    bottomCenter:
+      "https://images.unsplash.com/photo-1539464614836-672f5256d3a9",
+    bottomLeft: "https://images.unsplash.com/photo-1508407576665-2d9a5d638a7e",
+    bottomRight: "https://images.unsplash.com/photo-1510932742089-bef92acabb5b",
+    center: "https://images.unsplash.com/photo-1490648875801-10d926b882d3",
+  };
 
   const title = "To My Beloved Wife";
   const subtitle =
@@ -50,35 +48,35 @@ export function HeroSection() {
 
   const pictures = [
     {
-      src: uploadThingBase + images[7].key,
+      src: imageSet.background,
       scale: scale4,
     },
     {
-      src: uploadThingBase + images[6].key,
+      src: imageSet.topCenter,
       scale: scale5,
     },
     {
-      src: uploadThingBase + images[5].key,
+      src: imageSet.topLeft,
       scale: scale6,
     },
     {
-      src: uploadThingBase + images[4].key,
+      src: imageSet.topRight,
       scale: scale5,
     },
     {
-      src: uploadThingBase + images[3].key,
+      src: imageSet.bottomCenter,
       scale: scale6,
     },
     {
-      src: uploadThingBase + images[2].key,
+      src: imageSet.bottomLeft,
       scale: scale8,
     },
     {
-      src: uploadThingBase + images[1].key,
+      src: imageSet.bottomRight,
       scale: scale9,
     },
     {
-      src: uploadThingBase + images[0].key,
+      src: imageSet.center,
       scale: scaleLastImage,
     },
   ];
