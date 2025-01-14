@@ -15,22 +15,21 @@ const formatDate = (date: Date): string => {
 export function LoveCounters() {
   const counters = [
     {
-      startDate: new Date("2011-08-14T00:00:00Z"),
-      title: "Since That Mission Trip",
-      description:
-        "When I spotted you on the bus, not knowing what was ahead 🚌 ✨",
+      startDate: new Date("2011-03-15T00:00:00Z"),
+      title: "Since Our First Meeting",
+      description: "When fate brought us together at that sunset cafe ☕ ✨",
       delay: 0.7,
     },
     {
-      startDate: new Date("2012-01-04T00:00:00Z"),
-      title: "Since Our Story Began",
-      description: "From mission teammates to something more special ❤️ 💫",
+      startDate: new Date("2012-06-20T00:00:00Z"),
+      title: "Since Our First Date",
+      description: "That magical evening under the stars 🌟 💫",
       delay: 0.8,
     },
     {
-      startDate: new Date("2015-01-03T00:00:00Z"),
-      title: "Since Our Mountain-Top 'I Do'",
-      description: "When we promised forever in the mountains of Copán 🏔️ 💍",
+      startDate: new Date("2015-04-15T00:00:00Z"),
+      title: "Since Our Wedding Day",
+      description: "When we promised forever to each other 🌊 💍",
       delay: 0.9,
     },
   ];
@@ -42,9 +41,9 @@ export function LoveCounters() {
           <h1 className="scroll-m-20 text-5xl md:text-7xl  mb-4 font-extrabold tracking-tight lg:text-5xl text-foreground">
             Our Adventure Together
           </h1>
-          <p className="text-lg  max-w-2xl mx-auto">
-            From shy glances on a mission trip to mountain-top vows, here&apos;s
-            how long we&apos;ve been on this amazing journey! 🚀
+          <p className="text-lg max-w-2xl mx-auto">
+            From chance encounters to cherished memories, celebrating every
+            moment of our beautiful journey! 🚀
           </p>
         </div>
 

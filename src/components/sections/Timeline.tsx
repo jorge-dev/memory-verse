@@ -13,7 +13,6 @@ import {
   MessagesSquare,
   Mountain,
   Smile,
-  Plane,
   Camera,
   Palmtree,
   MapPin,
@@ -36,27 +35,22 @@ interface TimelineEvent {
   images: string[];
 }
 
-const weddingImages = Array.from(
+const weddingImageGallery = Array.from(
   { length: 34 },
   (_, i) => `2015 - ${i + 1} of 84.jpeg`
 );
 
-const honeymoonImages = Array.from(
+const memorableMoments = Array.from(
   { length: 24 },
   (_, i) => `2015 - ${i + 35} of 84.jpeg`
 );
 
-const reunitedCanadaImages = Array.from(
-  { length: 24 },
-  (_, i) => `2015 - ${i + 60} of 84.jpeg`
-);
-
 const timelineEvents: TimelineEvent[] = [
   {
-    date: "Summer 2011",
-    title: "Mission Trip Romance",
+    date: "Spring 2011",
+    title: "Coffee Shop Serendipity",
     description:
-      "Spotted you on the bus with your friend - that girl across the aisle would change my life forever! 😊 After a week of stolen glances, I finally got the courage to talk to you. Turned out we made an amazing mission team! 🙌",
+      "A chance encounter at a local coffee shop - who knew spilling coffee could lead to love? ☕",
     icon: Bus,
     images: getByYear(2011)
       .map((image) => image.url)
@@ -64,61 +58,51 @@ const timelineEvents: TimelineEvent[] = [
   },
   {
     date: "Summer 2012",
-    title: "More Than Mission Mates",
+    title: "Tech Conference Connection",
     description:
-      "Those mission trip conversations turned into something special. Im glad I replied to your message that January! 💌",
+      "Both presenting at the same conference - our shared passion for coding sparked something special! 💻",
     icon: Heart,
     images: getByYear(2012)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "Summer 2013",
-    title: "Our Last Mission Trip, But Not Our Last Adventure",
+    date: "Fall 2013",
+    title: "Startup Adventures Begin",
     description:
-      "Our last mission trip together, but the beginning of a lifetime of adventures! 🌍",
+      "Launched our first startup together - combining love and entrepreneurship! 🚀",
     icon: MessagesSquare,
     images: getByYear(2013)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
-    date: " Summer 2014",
-    title: "We're Engaged!",
+    date: "Winter 2014",
+    title: "The Perfect Proposal",
     description:
-      "The day you got down on one knee and asked me to be yours forever! 💍",
+      "A surprise proposal during our hackathon victory celebration! 💍",
     icon: GemIcon,
     images: getByYear(2014)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "Winter 2015",
-    title: "Mountain-Top Magic",
-    description:
-      "Said our 'I dos' with the mountains as our backdrop. The view was amazing, but you were even more breathtaking! 🏔️",
-    icon: Mountain,
-    images: getByNames(weddingImages)
-      .map((image) => image.url)
-      .sort(() => 0.5 - Math.random()),
-  },
-  {
     date: "Spring 2015",
-    title: "Honeymoon Heaven",
+    title: "Beachside 'I Do's",
     description:
-      "Our honeymoon was the perfect start to our married life. Every moment was pure bliss! 🌴",
-    icon: Palmtree,
-    images: getByNames(honeymoonImages)
+      "Our wedding by the ocean - with drones capturing every moment from above! 🌊",
+    icon: Mountain,
+    images: getByNames(weddingImageGallery)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
   {
-    date: "Fall 2015",
-    title: "Reunited in Canada",
+    date: "Summer 2015",
+    title: "Silicon Valley Honeymoon",
     description:
-      "After months of long-distance, we were finally reunited in Canada. Every moment was worth the wait! 🍁",
-    icon: Plane,
-    images: getByNames(reunitedCanadaImages)
+      "Combining our love for tech with romance - touring startups by day, romance by night! 🌉",
+    icon: Palmtree,
+    images: getByNames(memorableMoments)
       .map((image) => image.url)
       .sort(() => 0.5 - Math.random()),
   },
@@ -214,9 +198,9 @@ const timelineEvents: TimelineEvent[] = [
   },
   {
     date: "Present day",
-    title: "Our Beautiful Complete Family",
+    title: "Building Our Digital Empire",
     description:
-      "Our family is complete with our three beautiful children. Every day is filled with love, laughter, and new adventures! 💕",
+      "From that first coffee spill to a successful tech company - our love story continues to innovate! 💕",
     icon: HandHeart,
     images: getByYear(2024)
       .map((image) => image.url)

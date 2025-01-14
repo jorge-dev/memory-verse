@@ -27,9 +27,9 @@ export function HeroSection() {
     center: "https://images.unsplash.com/photo-1490648875801-10d926b882d3",
   };
 
-  const title = "To My Beloved Wife";
+  const title = "To My Beloved";
   const subtitle =
-    "A decade of love, laughter, and countless beautiful moments. Every day I fall more in love with you. This is our story...";
+    "Every moment with you is a treasure, every smile a gift, and every day an adventure. Our love story continues to unfold in the most beautiful ways...";
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
