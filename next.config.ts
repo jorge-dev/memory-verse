@@ -14,10 +14,11 @@ const nextConfig: NextConfig = {
         pathname: "/seed/**",
       },
       {
+        // https://images.unsplash.com/
         protocol: "https",
-        hostname: "utfs.io",
+        hostname: "images.unsplash.com",
         port: '',
-        pathname: "/a/gqr91h87ll/**",
+        pathname: "/**",
       }
     ],
   },
