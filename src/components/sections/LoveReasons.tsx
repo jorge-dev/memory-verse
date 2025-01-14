@@ -12,54 +12,54 @@ interface Reason {
 
 const loveReasons: Reason[] = [
   {
-    title: "Your Thoughtfulness",
+    title: "Your Kindness",
     description:
-      "The way you cherished a small gesture, like me giving you my sweater on that mission trip, shows how much you value the little things in life and love.",
+      "The way you care for others and bring warmth to everyone around you never fails to amaze me.",
   },
   {
-    title: "Your Courage",
+    title: "Your Smile",
     description:
-      "You opened your heart to me without hesitation, even when it took great bravery. That moment changed our lives forever, and I’m so thankful for it.",
+      "Your smile brightens even the darkest days and makes every moment more beautiful.",
   },
   {
-    title: "Your Commitment",
+    title: "Your Patience",
     description:
-      "You spent your time and savings visiting me so many times before I moved to Canada. That devotion is something I’ll always treasure and admire.",
+      "The way you handle life's challenges with grace and understanding inspires me daily.",
   },
   {
-    title: "Your Steadfastness",
+    title: "Your Dreams",
     description:
-      "Through every challenge, you’ve been my constant source of strength. Your quiet support and unwavering love give me the courage to keep going.",
+      "Your ambitious spirit and determination to chase your dreams make me fall in love with you more each day.",
   },
   {
-    title: "Your Playfulness",
+    title: "Your Energy",
     description:
-      "Your silly jokes, playful nibbles, and that infectious laugh of yours can brighten even the dullest day. Life with you is always full of joy.",
-  },
-  {
-    title: "Your Drive",
-    description:
-      "Whether it’s your passion for books or your determination to give our kids the best, the energy you bring to what you love inspires me every day.",
-  },
-  {
-    title: "Your Humor",
-    description:
-      "You make me laugh with your playful quips, like when you ask how I can be both rude and handsome. Your humor always keeps me smiling.",
+      "Your zest for life and adventure keeps our journey exciting and full of wonderful surprises.",
   },
   {
     title: "Your Strength",
     description:
-      "In tough times, you face challenges head-on with resilience and grace. Your strength inspires me and reminds me of how incredible you are.",
+      "The quiet strength you show in difficult times gives me courage and hope.",
   },
   {
-    title: "Your Curiosity",
+    title: "Your Wisdom",
     description:
-      "Your love for books and learning reflects your thoughtful and curious mind. I admire how you’re always exploring and growing in so many ways.",
+      "Your thoughtful advice and perspective help me see the world in new ways.",
   },
   {
-    title: "Your Love for Family",
+    title: "Your Support",
     description:
-      "You pour your heart into caring for all of us, making sure our family is full of love, joy, and support. You’re truly the heart of our home.",
+      "You're my biggest cheerleader and strongest supporter in every endeavor.",
+  },
+  {
+    title: "Your Compassion",
+    description:
+      "Your endless capacity to care and understand others touches my heart deeply.",
+  },
+  {
+    title: "Your Love",
+    description:
+      "The way you love, unconditionally and completely, makes every day feel like a gift.",
   },
 ];
 
@@ -100,7 +100,7 @@ export function LoveReasons() {
                 actionArea="global"
                 range={200}
               >
-                <Card className="transition-all duration-300 border-none bg-gray-100/50 dark:bg-gray-800/50  h-full flex flex-col">
+                <Card className="transition-all duration-300 border-none bg-gray-100/50 dark:bg-gray-800/50 h-[200px] flex flex-col overflow-hidden">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <span className="text-3xl font-bold text-primary">

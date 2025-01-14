@@ -13,19 +13,20 @@ interface LoveLetterProps {
 const loveLetter: LoveLetterProps = {
   content: `My Dearest Love, ❤️
 
-As I sit to write this, my heart overflows with gratitude and joy as I think about that mission trip back in 2011. I remember the exact moment I saw you on that bus, laughing with your friend. Little did I know that God was setting the stage for a story far more beautiful than I could have imagined.
+I still remember that perfect spring afternoon when our eyes first met across the café. The way the sunlight caught your smile made my heart skip a beat, and somehow I knew that moment would change my life forever.
 
-That second week, when we began to truly talk, remains one of my most cherished memories. The way we connected while serving others was just the beginning of something extraordinary. Who could have foreseen that those simple moments would lead us to this incredible life together?
+Since then, every day has been brighter, every laugh more joyful, and every moment more meaningful because I get to share them with you. Your kindness, your strength, and your beautiful spirit continue to amaze me with each passing day.
 
-I will never forget the day we stood together in 2015, on that mountain in Copán, exchanging vows. The beauty of the view paled in comparison to the beauty of your presence in that moment. It was not just a promise—it was the beginning of a journey that has blessed me in ways words can barely express.
+That magical evening when we danced under the stars on our first date, I felt like we were the only two people in the world. Your laugh, your stories, and the way you saw beauty in everything around us made me fall deeper in love with you.
 
-Since then, our lives have been enriched by the arrival of our three beautiful daughters—our joyful 2018 miracle, our curious 2020 adventurer, and our sweet 2022 light. Watching you as their mother has revealed a depth of love and strength in you that amazes me every single day. The warmth and care you pour into our family have made our house a home filled with love and laughter.
+Our wedding day by the ocean was just the beginning of our greatest adventure. Standing there, promising forever to each other while the waves crashed behind us, I knew I was the luckiest person alive. Your vows still echo in my heart, a promise we renew with each sunrise.
 
-Every moment with you—whether it’s bedtime stories with the girls, chaotic breakfast mornings, or quiet evenings on the couch—is a treasure I hold close. You make the ordinary extraordinary and turn every day into a blessing.
+Through all of life's ups and downs, your unwavering love and support have been my anchor. You have this incredible way of making even ordinary moments feel extraordinary - from quiet Sunday mornings to spontaneous road trips, every moment with you is a treasure.
 
-As I look to the future, my heart is filled with anticipation for the adventures and milestones that await us. With you by my side, I know that every step of the journey will be full of love and meaning.
-`,
-  signature: "Forever Yours,\nJorge",
+As we continue writing our story together, I'm in awe of how our love grows stronger and deeper with each passing day. Your smile still makes my heart race, your touch still gives me butterflies, and your love still feels like the greatest gift I've ever received.
+
+Looking ahead, I'm excited for all the adventures that await us, all the dreams we'll chase, and all the memories we'll create together. You make every day feel like a new chapter in the most beautiful love story ever written.`,
+  signature: "Forever and Always Yours,\nWith All My Love",
   date: new Date().toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

@@ -7,8 +7,8 @@ interface FooterProps {
 
 const footerData: FooterProps = {
   message:
-    "To my beloved Rebekah, who makes every day of my life more beautiful than I could have ever imagined.",
-  signature: "With all my love, Jorge",
+    "To my soulmate, who makes every day brighter just by being in it. Thank you for sharing this beautiful journey with me.",
+  signature: "Forever Yours, With All My Love",
 };
 
 export function Footer() {

@@ -17,47 +17,43 @@ interface Memory {
 export const memories: Memory[] = [
   {
     id: 1,
-    image: getByName("2011 - 1 of 5.jpeg")!.url,
-    date: "Summer 2011",
-    title: "A Fateful Bus Ride",
-    description:
-      "The moment I spotted you on that mission trip bus, my heart whispered, ‘This one’s special.’",
+    image: "https://images.unsplash.com/photo-1644446770253-5c6b45c38ba8",
+    date: "Spring 2011",
+    title: "First Glance",
+    description: "That magical moment when our eyes met across the café.",
     color: "rgba(255, 218, 224, 0.8)", // Soft pink
   },
   {
     id: 2,
-    image: getByName("2015 - 12 of 84.jpeg")!.url,
-    date: "Summer 2014",
-    title: "Saying Yes to Forever",
+    image: "https://images.unsplash.com/photo-1695860800060-2b87b9ff8d12",
+    date: "Winter 2014",
+    title: "The Perfect Proposal",
     description:
-      "That life-changing evening when you said 'Yes' and we began our forever.",
+      "Under a sky full of stars, you made me the happiest person alive.",
     color: "rgba(204, 229, 255, 0.8)", // Soft blue
   },
   {
     id: 3,
-    date: "Fall 2015",
-    image: getByName("2015 - 71 of 84.jpeg")!.url,
-    title: "Canadian Adventure Begins",
-    description:
-      "Starting our new chapter together in beautiful Calgary. The wait made our reunion even sweeter! 🍁",
+    date: "Spring 2015",
+    image: "https://images.unsplash.com/photo-1576694700950-47ff95f5ec81",
+    title: "Our Wedding Day",
+    description: "Surrounded by loved ones, we promised forever to each other.",
     color: "rgba(215, 236, 208, 0.8)", // Soft green
   },
   {
     id: 4,
     image: getByName("2019 - 13 of 29.jpeg")!.url,
     date: "2018",
-    title: "Our First Little Miracle",
-    description:
-      "The day Emma arrived, our hearts grew in ways we never imagined possible.",
+    title: "Growing Family",
+    description: "The day our little miracle made us a family of three.",
     color: "rgba(255, 248, 204, 0.8)", // Soft yellow
   },
   {
     id: 5,
-    image: getByName("2024 - 21 of 23.jpeg")!.url,
+    image: "https://images.unsplash.com/photo-1535762978982-79119ca47447",
     date: "Present Day",
-    title: "A Home Filled with Laughter",
-    description:
-      "Our hearts overflow with joy as we watch our three amazing daughters grow, filling our home with endless love and laughter. 💝",
+    title: "Our Beautiful Life",
+    description: "Every day with you is another page in our love story. ❤️",
     color: "rgba(229, 204, 255, 0.8)", // Soft purple
   },
 ];
